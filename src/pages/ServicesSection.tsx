@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import {
   Truck,
-  Factory,
   Users,
   BarChart3,
   Lightbulb,
