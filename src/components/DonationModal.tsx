@@ -20,9 +20,6 @@ interface DonationModalProps {
 
 export default function DonationModal({ isOpen, onClose }: DonationModalProps) {
   const [copied, setCopied] = useState<string | null>(null);
-  const [selectedAmount, setSelectedAmount] = useState(5000);
-  const [customAmount, setCustomAmount] = useState("");
-  const [isProcessing, setIsProcessing] = useState(false);
 
   // Donation account details
   const accountDetails = {
@@ -38,47 +35,6 @@ export default function DonationModal({ isOpen, onClose }: DonationModalProps) {
     navigator.clipboard.writeText(text);
     setCopied(field);
     setTimeout(() => setCopied(null), 2000);
-  };
-
-  // Handle Paystack payment
-  const handlePaystackPayment = async () => {
-    const amount = customAmount ? parseInt(customAmount) : selectedAmount;
-
-    if (amount < 100) {
-      alert("Minimum donation amount is ₦100");
-      return;
-    }
-
-    setIsProcessing(true);
-
-    // Simulate Paystack integration
-    // In production, you would use the Paystack JavaScript SDK
-    try {
-      // This is a placeholder - replace with actual Paystack implementation
-      console.log("Processing payment of ₦" + amount);
-
-      // Example Paystack integration (requires Paystack SDK):
-      // const response = await fetch('/api/paystack/initialize', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({
-      //     amount: amount * 100, // Paystack uses kobo
-      //     email: 'donor@example.com',
-      //     metadata: { purpose: 'donation' }
-      //   })
-      // });
-
-      // For now, show success message
-      alert(
-        `Thank you for your donation of ₦${amount}! Paystack integration coming soon.`,
-      );
-      onClose();
-    } catch (error) {
-      console.error("Payment error:", error);
-      alert("Payment failed. Please try again.");
-    } finally {
-      setIsProcessing(false);
-    }
   };
 
   // Modal animation variants
