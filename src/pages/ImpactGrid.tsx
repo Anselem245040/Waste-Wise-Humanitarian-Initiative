@@ -32,7 +32,7 @@ function ImpactCard({
 }: ImpactCardProps) {
   return (
     <motion.div
-      className={`relative group overflow-hidden rounded-2xl backdrop-blur-md bg-white/30 border-2 transition-all duration-300 hover:shadow-2xl ${
+      className={`relative group overflow-hidden rounded-2xl backdrop-blur-md bg-gradient-to-br from-primary/40 to-accent/40 border-2 transition-all duration-300 hover:shadow-2xl ${
         size === "large" ? "md:col-span-2 md:row-span-2" : ""
       }`}
       style={{
@@ -125,7 +125,7 @@ export default function ImpactGrid() {
       icon: <Users className='w-7 h-7' />,
       title: "Communities Reached",
       description:
-        "Our Year 1 goal: Reach at least 10 communities across Enugu State and neighboring areas, creating grassroots environmental awareness and engagement.",
+        "Reach communities worldwide, creating grassroots environmental awareness and engagement through our global initiatives.",
       gradient: "primary",
       accentColor: "secondary",
       size: "small",
@@ -150,9 +150,9 @@ export default function ImpactGrid() {
     },
     {
       icon: <Leaf className='w-7 h-7' />,
-      title: "The Plastic Crisis",
+      title: "Nylon and Plastic Crisis",
       description:
-        "432+ million tonnes of plastic waste generated annually. 199+ million tonnes litter our oceans. 1+ million sea creatures killed yearly. 1000+ years for plastic to decompose. Together we can change this.",
+        "Nylon and Plastic pollution cause diseases, disability, and premature death at every stage of its lifecycle. Together we clean our environment to promote healthy lifestyle.",
       gradient: "primary",
       accentColor: "accent",
       size: "large",
@@ -180,7 +180,7 @@ export default function ImpactGrid() {
   return (
     <section
       id='impact'
-      className='py-16 md:py-24 bg-gradient-to-b from-background to-muted/20'
+      className='py-16 md:py-24 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5'
     >
       <div className='container'>
         {/* Section Header */}
@@ -195,7 +195,7 @@ export default function ImpactGrid() {
             className='text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4'
             variants={itemVariants}
           >
-            Our Social Impact & First Year Goals
+            Our Social Impact & Goals
           </motion.h2>
           <motion.p
             className='text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto'

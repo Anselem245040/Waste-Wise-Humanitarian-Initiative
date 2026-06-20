@@ -91,7 +91,10 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id='about' className='py-16 md:py-24 bg-background'>
+    <section
+      id='about'
+      className='py-16 md:py-24 bg-gradient-to-br from-secondary/5 via-accent/5 to-primary/5'
+    >
       <div className='container'>
         {/* Section Header */}
         <motion.div
@@ -126,7 +129,7 @@ export default function AboutSection() {
         >
           {/* Vision */}
           <motion.div
-            className='bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 md:p-10 border border-primary/20'
+            className='bg-gradient-to-r from-primary/40 to-secondary/40 rounded-2xl p-8 md:p-10 border border-primary/20'
             variants={itemVariants}
           >
             <h3 className='text-2xl font-display font-bold mb-4 text-primary'>
@@ -141,7 +144,7 @@ export default function AboutSection() {
 
           {/* Mission */}
           <motion.div
-            className='bg-gradient-to-r from-secondary/10 to-accent/10 rounded-2xl p-8 md:p-10 border border-secondary/20'
+            className='bg-gradient-to-r from-secondary/40 to-accent/40 rounded-2xl p-8 md:p-10 border border-secondary/20'
             variants={itemVariants}
           >
             <h3 className='text-2xl font-display font-bold mb-4 text-secondary'>
@@ -158,7 +161,7 @@ export default function AboutSection() {
 
         {/* Motto, Tagline, Slogan */}
         <motion.div
-          className='mb-20 bg-gradient-to-r from-accent/10 to-primary/10 rounded-2xl p-8 md:p-12 border border-accent/20'
+          className='mb-20 bg-gradient-to-r from-accent/40 to-primary/40 rounded-2xl p-8 md:p-12 border border-accent/20'
           variants={itemVariants}
           initial='hidden'
           whileInView='visible'
@@ -215,7 +218,7 @@ export default function AboutSection() {
               return (
                 <motion.div
                   key={idx}
-                  className='bg-white/50 backdrop-blur-md border border-white/20 rounded-2xl p-8 hover:shadow-lg hover:scale-105 transition-all duration-300 group'
+                  className='bg-gradient-to-br from-primary/40 to-accent/40 backdrop-blur-md border border-white/20 rounded-2xl p-8 hover:shadow-lg hover:scale-105 transition-all duration-300 group'
                   variants={itemVariants}
                 >
                   <div className='w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4 group-hover:shadow-lg transition-shadow'>
@@ -252,7 +255,7 @@ export default function AboutSection() {
             {teamMembers.map((member, idx) => (
               <motion.div
                 key={idx}
-                className='bg-white/50 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:shadow-lg hover:scale-105 transition-all duration-300 group'
+                className='bg-gradient-to-br from-secondary/40 to-primary/40 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:shadow-lg hover:scale-105 transition-all duration-300 group'
                 variants={itemVariants}
               >
                 <div className='w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden flex items-center justify-center group-hover:shadow-lg transition-shadow'>

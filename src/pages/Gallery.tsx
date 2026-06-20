@@ -29,15 +29,8 @@ export default function Gallery() {
   const [canScrollNext, setCanScrollNext] = useState(false);
   const [isAutoplayActive, setIsAutoplayActive] = useState(true);
 
-  // Use images added to the public folder: three gallery images
+  // Use images added to the public folder: gallery images
   const galleryImages: GalleryImage[] = [
-    {
-      id: 1,
-      title: "Community Cleanup",
-      category: "Community",
-      description: "Volunteers restoring public spaces",
-      image: "/WhatsApp%20Image%202026-06-03%20at%2009.07.23.jpeg",
-    },
     {
       id: 2,
       title: "Recycling Workshop",
@@ -114,7 +107,7 @@ export default function Gallery() {
   return (
     <section
       id='gallery'
-      className='py-16 md:py-24 bg-gradient-to-b from-background to-muted/20'
+      className='py-16 md:py-24 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5'
     >
       <div className='container'>
         {/* Section Header */}

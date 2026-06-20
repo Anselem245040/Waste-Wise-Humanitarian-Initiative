@@ -71,58 +71,58 @@
 /* Light Mode (Default) */
 :root {
   /* Primary: WHI Logo Blue */
-  --primary: oklch(0.51 0.22 264);
-  --primary-foreground: oklch(0.98 0.001 0);
+  --primary: rgb(37, 99, 235);
+  --primary-foreground: rgb(250, 250, 250);
 
   /* Secondary: Teal (tech edge) */
-  --secondary: oklch(0.65 0.12 180);
-  --secondary-foreground: oklch(0.98 0.001 0);
+  --secondary: rgb(20, 184, 166);
+  --secondary-foreground: rgb(250, 250, 250);
 
   /* Accent: Vibrant Lime (CTAs) */
-  --accent: oklch(0.78 0.22 120);
-  --accent-foreground: oklch(0.15 0.02 264);
+  --accent: rgb(163, 230, 53);
+  --accent-foreground: rgb(15, 23, 42);
 
   /* Sidebar */
-  --sidebar-primary: oklch(0.51 0.22 264);
-  --sidebar-primary-foreground: oklch(0.98 0.001 0);
-  --sidebar-accent: oklch(0.78 0.22 120);
-  --sidebar-accent-foreground: oklch(0.15 0.02 264);
+  --sidebar-primary: rgb(37, 99, 235);
+  --sidebar-primary-foreground: rgb(250, 250, 250);
+  --sidebar-accent: rgb(163, 230, 53);
+  --sidebar-accent-foreground: rgb(15, 23, 42);
 
   /* Backgrounds & Text */
-  --background: oklch(0.98 0.001 0);
-  --foreground: oklch(0.15 0.02 264);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.02 264);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.02 264);
+  --background: rgb(255, 255, 255);
+  --foreground: rgb(15, 23, 42);
+  --card: rgb(255, 255, 255);
+  --card-foreground: rgb(15, 23, 42);
+  --popover: rgb(255, 255, 255);
+  --popover-foreground: rgb(15, 23, 42);
 
   /* Neutral Grays */
-  --muted: oklch(0.92 0.001 0);
-  --muted-foreground: oklch(0.5 0.01 264);
+  --muted: rgb(241, 245, 249);
+  --muted-foreground: rgb(120, 113, 108);
 
   /* Borders & Inputs */
-  --border: oklch(0.88 0.002 0);
-  --input: oklch(0.92 0.001 0);
+  --border: rgb(226, 232, 240);
+  --input: rgb(241, 245, 249);
 
   /* Focus Ring (Teal) */
-  --ring: oklch(0.65 0.12 180);
+  --ring: rgb(20, 184, 166);
 
   /* Destructive (Red) */
-  --destructive: oklch(0.62 0.22 29);
-  --destructive-foreground: oklch(0.98 0.001 0);
+  --destructive: rgb(239, 68, 68);
+  --destructive-foreground: rgb(250, 250, 250);
 
   /* Chart Colors (Green to Lime gradient) */
-  --chart-1: oklch(0.42 0.15 142);
-  --chart-2: oklch(0.55 0.18 130);
-  --chart-3: oklch(0.65 0.12 180);
-  --chart-4: oklch(0.78 0.22 120);
-  --chart-5: oklch(0.85 0.18 110);
+  --chart-1: rgb(34, 197, 94);
+  --chart-2: rgb(74, 222, 128);
+  --chart-3: rgb(20, 184, 166);
+  --chart-4: rgb(163, 230, 53);
+  --chart-5: rgb(206, 250, 121);
 
   /* Sidebar */
-  --sidebar: oklch(0.98 0.001 0);
-  --sidebar-foreground: oklch(0.15 0.02 142);
-  --sidebar-border: oklch(0.88 0.002 0);
-  --sidebar-ring: oklch(0.65 0.12 180);
+  --sidebar: rgb(255, 255, 255);
+  --sidebar-foreground: rgb(15, 23, 42);
+  --sidebar-border: rgb(226, 232, 240);
+  --sidebar-ring: rgb(20, 184, 166);
 
   /* Radius */
   --radius: 0.75rem;
@@ -136,58 +136,58 @@
 /* Dark Mode */
 .dark {
   /* Primary: Lighter Forest Green */
-  --primary: oklch(0.55 0.12 142);
-  --primary-foreground: oklch(0.98 0.001 0);
+  --primary: rgb(74, 222, 128);
+  --primary-foreground: rgb(250, 250, 250);
 
   /* Secondary: Bright Teal */
-  --secondary: oklch(0.72 0.15 180);
-  --secondary-foreground: oklch(0.1 0.01 142);
+  --secondary: rgb(45, 212, 191);
+  --secondary-foreground: rgb(15, 23, 42);
 
   /* Accent: Bright Lime */
-  --accent: oklch(0.82 0.25 120);
-  --accent-foreground: oklch(0.1 0.01 142);
+  --accent: rgb(206, 250, 121);
+  --accent-foreground: rgb(15, 23, 42);
 
   /* Sidebar */
-  --sidebar-primary: oklch(0.55 0.12 142);
-  --sidebar-primary-foreground: oklch(0.98 0.001 0);
-  --sidebar-accent: oklch(0.82 0.25 120);
-  --sidebar-accent-foreground: oklch(0.1 0.01 142);
+  --sidebar-primary: rgb(74, 222, 128);
+  --sidebar-primary-foreground: rgb(250, 250, 250);
+  --sidebar-accent: rgb(206, 250, 121);
+  --sidebar-accent-foreground: rgb(15, 23, 42);
 
   /* Backgrounds & Text */
-  --background: oklch(0.1 0.01 142);
-  --foreground: oklch(0.95 0.002 0);
-  --card: oklch(0.15 0.01 142);
-  --card-foreground: oklch(0.95 0.002 0);
-  --popover: oklch(0.15 0.01 142);
-  --popover-foreground: oklch(0.95 0.002 0);
+  --background: rgb(15, 23, 42);
+  --foreground: rgb(248, 250, 252);
+  --card: rgb(30, 41, 59);
+  --card-foreground: rgb(248, 250, 252);
+  --popover: rgb(30, 41, 59);
+  --popover-foreground: rgb(248, 250, 252);
 
   /* Neutral Grays */
-  --muted: oklch(0.25 0.01 142);
-  --muted-foreground: oklch(0.7 0.01 142);
+  --muted: rgb(51, 65, 85);
+  --muted-foreground: rgb(148, 163, 184);
 
   /* Borders & Inputs */
-  --border: oklch(0.2 0.01 142);
-  --input: oklch(0.18 0.01 142);
+  --border: rgb(51, 65, 85);
+  --input: rgb(30, 41, 59);
 
   /* Focus Ring (Bright Teal) */
-  --ring: oklch(0.72 0.15 180);
+  --ring: rgb(45, 212, 191);
 
   /* Destructive (Bright Red) */
-  --destructive: oklch(0.72 0.25 29);
-  --destructive-foreground: oklch(0.98 0.001 0);
+  --destructive: rgb(248, 113, 113);
+  --destructive-foreground: rgb(250, 250, 250);
 
   /* Chart Colors */
-  --chart-1: oklch(0.55 0.12 142);
-  --chart-2: oklch(0.65 0.15 130);
-  --chart-3: oklch(0.72 0.15 180);
-  --chart-4: oklch(0.82 0.25 120);
-  --chart-5: oklch(0.88 0.2 110);
+  --chart-1: rgb(74, 222, 128);
+  --chart-2: rgb(52, 211, 153);
+  --chart-3: rgb(45, 212, 191);
+  --chart-4: rgb(206, 250, 121);
+  --chart-5: rgb(236, 252, 203);
 
   /* Sidebar */
-  --sidebar: oklch(0.15 0.01 142);
-  --sidebar-foreground: oklch(0.95 0.002 0);
-  --sidebar-border: oklch(0.2 0.01 142);
-  --sidebar-ring: oklch(0.72 0.15 180);
+  --sidebar: rgb(30, 41, 59);
+  --sidebar-foreground: rgb(248, 250, 252);
+  --sidebar-border: rgb(51, 65, 85);
+  --sidebar-ring: rgb(45, 212, 191);
 
   /* Brand Colors (dark mode can reuse same brand tokens) */
   --brand-sage: #7c9e7e;

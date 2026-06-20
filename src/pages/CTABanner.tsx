@@ -44,7 +44,8 @@ export default function CTABanner() {
     {
       icon: Heart,
       title: "Support Our Mission",
-      description: "Donate and help us scale our environmental initiatives",
+      description:
+        "Account Name: Waste Wise Humanitarian Initiative Enugu | USD: 2048741114 | Naira: 2048740997 | First Bank Nig. PLC",
       cta: "Donate Today",
       gradient: "from-secondary to-accent",
       hoverGradient: "from-secondary/80 to-accent/80",
@@ -60,7 +61,7 @@ export default function CTABanner() {
   ];
 
   return (
-    <section className='py-16 md:py-24 bg-gradient-to-b from-background to-muted/20'>
+    <section className='py-16 md:py-24 bg-gradient-to-br from-secondary/5 via-accent/5 to-primary/5'>
       <div className='container'>
         {/* Main CTA Banner */}
         <motion.div
@@ -112,8 +113,9 @@ export default function CTABanner() {
                 className='text-lg md:text-xl text-white/90 max-w-2xl mx-auto'
                 variants={itemVariants}
               >
-                Communities are suffering. Youth are waiting for opportunity. The environment is crying for help.
-                Your support transforms lives, cleans communities, and builds sustainable futures.
+                Communities are suffering. Youth are waiting for opportunity.
+                The environment is crying for help. Your support transforms
+                lives, cleans communities, and builds sustainable futures.
               </motion.p>
             </motion.div>
 
@@ -127,7 +129,7 @@ export default function CTABanner() {
                 return (
                   <motion.a
                     key={idx}
-                    href="/learn-more"
+                    href='/learn-more'
                     className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${option.gradient} p-8 text-white hover:shadow-2xl transition-all duration-300 transform hover:scale-105`}
                     variants={itemVariants}
                     whileHover={{ scale: 1.05, y: -5 }}

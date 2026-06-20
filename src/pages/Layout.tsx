@@ -27,10 +27,10 @@ export default function Layout({ children }: LayoutProps) {
             </div>
             <div className='flex flex-col'>
               <h1 className='font-display font-bold text-lg leading-tight text-foreground'>
-                WasteZero
+                WHI
               </h1>
               <p className='text-xs text-muted-foreground font-medium'>
-                Nigerian Waste Management
+                Waste Wise Humanitarian Initiative
               </p>
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function Layout({ children }: LayoutProps) {
                 <div className='w-8 h-8 bg-gradient-to-br from-accent to-secondary rounded-lg flex items-center justify-center'>
                   <Leaf className='w-5 h-5 text-foreground' />
                 </div>
-                <h3 className='font-display font-bold text-lg'>WasteZero</h3>
+                <h3 className='font-display font-bold text-lg'>WHI</h3>
               </div>
               <p className='text-sm text-background/70 leading-relaxed'>
                 Transforming Nigeria's waste management through innovative
@@ -175,7 +175,9 @@ export default function Layout({ children }: LayoutProps) {
             <div className='space-y-4'>
               <h4 className='font-display font-bold text-sm'>Contact</h4>
               <ul className='space-y-2 text-sm'>
-                <li className='text-background/70'>Email: info@wastezero.ng</li>
+                <li className='text-background/70'>
+                  Email: info@wastewisehumanitarianinitiative.org
+                </li>
                 <li className='text-background/70'>
                   Phone: +234 (0) 123 456 7890
                 </li>
@@ -216,7 +218,9 @@ export default function Layout({ children }: LayoutProps) {
 
             {/* Copyright */}
             <div className='flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-background/60'>
-              <p>© 2026 WasteZero Nigeria. All rights reserved.</p>
+              <p>
+                © 2026 Waste Wise Humanitarian Initiative. All rights reserved.
+              </p>
               <div className='flex gap-6'>
                 <a href='#' className='hover:text-background transition-colors'>
                   Privacy Policy

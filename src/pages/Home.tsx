@@ -1,9 +1,8 @@
 import Footer from "./Footer";
 import Hero from "./Hero";
 import ImpactGrid from "./ImpactGrid";
-import AboutSection from "./AboutSection";
+import GlobalStatistics from "./GlobalStatistics";
 import ServicesSection from "./ServicesSection";
-import PurposeSection from "./PurposeSection";
 import Gallery from "./Gallery";
 import CTABanner from "./CTABanner";
 import SocialMediaFeed from "./SocialMediaFeed";
@@ -27,14 +26,11 @@ export default function Home() {
       {/* Impact Grid Section */}
       <ImpactGrid />
 
-      {/* About Section */}
-      <AboutSection />
+      {/* Global Statistics Section */}
+      <GlobalStatistics />
 
       {/* Services Section */}
       <ServicesSection />
-
-      {/* Purpose & Target Beneficiaries Section */}
-      <PurposeSection />
 
       {/* Gallery Section */}
       <Gallery />

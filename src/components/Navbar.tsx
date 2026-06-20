@@ -145,47 +145,14 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
             <a className='flex items-center gap-3 group cursor-pointer transition-transform duration-300 hover:scale-105'>
               <div className='w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow relative'>
                 {/* WHI Shield Logo */}
-                <svg
-                  viewBox='0 0 40 40'
-                  className='w-6 h-6'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  {/* Shield outline */}
-                  <path
-                    d='M20 2 L8 8 L8 18 C8 28 20 36 20 36 C20 36 32 28 32 18 L32 8 Z'
-                    fill='none'
-                    stroke='white'
-                    strokeWidth='1.5'
-                  />
-                  {/* Green leaf */}
-                  <ellipse
-                    cx='20'
-                    cy='18'
-                    rx='4'
-                    ry='8'
-                    fill='#4ade80'
-                    opacity='0.8'
-                  />
-                  {/* WHI text */}
-                  <text
-                    x='20'
-                    y='22'
-                    fontSize='6'
-                    fontWeight='bold'
-                    fill='white'
-                    textAnchor='middle'
-                    fontFamily='Arial'
-                  >
-                    WHI
-                  </text>
-                </svg>
+                <img src='logo.jpeg' alt='logo' />
               </div>
               <div className='flex flex-col'>
                 <h1 className='font-display font-bold text-sm leading-tight text-foreground'>
                   WHI
                 </h1>
                 <p className='text-xs text-muted-foreground font-medium'>
-                  Waste Wise Initiative
+                  Waste Wise Humanitarian Initiative
                 </p>
               </div>
             </a>

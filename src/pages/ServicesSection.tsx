@@ -109,7 +109,7 @@ export default function ServicesSection() {
   return (
     <section
       id='services'
-      className='py-16 md:py-24 bg-gradient-to-b from-background to-muted/20'
+      className='py-16 md:py-24 bg-gradient-to-br from-accent/5 via-secondary/5 to-primary/5'
     >
       <div className='container'>
         {/* Section Header */}
@@ -148,7 +148,7 @@ export default function ServicesSection() {
             return (
               <motion.div
                 key={idx}
-                className='group relative overflow-hidden rounded-2xl bg-white/50 backdrop-blur-md border border-white/20 p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300'
+                className='group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/40 to-secondary/40 backdrop-blur-md border border-white/20 p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300'
                 variants={itemVariants}
               >
                 {/* Gradient Background */}

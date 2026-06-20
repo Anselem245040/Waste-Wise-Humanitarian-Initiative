@@ -280,7 +280,9 @@ export default function Footer({ onDonateClick }: FooterProps) {
             variants={itemVariants}
             className='flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-background/60'
           >
-            <p>© 2026 WasteZero Nigeria. All rights reserved.</p>
+            <p>
+              © 2026 Waste Wise Humanitarian Initiative. All rights reserved.
+            </p>
             <div className='flex gap-6'>
               <a href='#' className='hover:text-background transition-colors'>
                 Privacy Policy

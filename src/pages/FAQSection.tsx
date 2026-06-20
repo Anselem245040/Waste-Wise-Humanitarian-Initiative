@@ -4,7 +4,7 @@ import { useState } from "react";
 
 /**
  * Premium FAQ Accordion Component
- * 
+ *
  * Design System: Eco-Tech Premium
  * - Collapsible accordion with smooth animations
  * - Organized by categories (Volunteering, Donations, Partnerships)
@@ -21,7 +21,9 @@ interface FAQItem {
 
 export default function FAQSection() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
-  const [activeCategory, setActiveCategory] = useState<"volunteering" | "donations" | "partnerships">("volunteering");
+  const [activeCategory, setActiveCategory] = useState<
+    "volunteering" | "donations" | "partnerships"
+  >("volunteering");
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -78,7 +80,7 @@ export default function FAQSection() {
       category: "volunteering",
       question: "How do I sign up to volunteer?",
       answer:
-        "Visit our website and fill out the volunteer application form. You'll be contacted within 48 hours to discuss available opportunities and schedule your first volunteer session. You can also email us at volunteers@wastezero.ng.",
+        "Visit our website and fill out the volunteer application form. You'll be contacted within 48 hours to discuss available opportunities and schedule your first volunteer session. You can also email us at info@wastewisehumanitarianinitiative.org.",
     },
 
     // Donations
@@ -94,7 +96,7 @@ export default function FAQSection() {
       category: "donations",
       question: "Is my donation tax-deductible?",
       answer:
-        "Yes! WasteZero is a registered NGO with tax-exempt status. All donations are tax-deductible. You'll receive a tax receipt for your records. Consult your local tax authority for specific deduction details.",
+        "Yes! Waste Wise Humanitarian Initiative is a registered NGO with tax-exempt status. All donations are tax-deductible. You'll receive a tax receipt for your records. Consult your local tax authority for specific deduction details.",
     },
     {
       id: "don-3",
@@ -115,7 +117,7 @@ export default function FAQSection() {
       category: "donations",
       question: "Can I donate in-kind (materials, equipment)?",
       answer:
-        "Yes, we accept in-kind donations of recycling equipment, office supplies, vehicles, and other materials. Contact our partnerships team at partnerships@wastezero.ng to discuss your donation.",
+        "Yes, we accept in-kind donations of recycling equipment, office supplies, vehicles, and other materials. Contact our partnerships team at info@wastewisehumanitarianinitiative.org to discuss your donation.",
     },
 
     // Partnerships
@@ -129,9 +131,10 @@ export default function FAQSection() {
     {
       id: "par-2",
       category: "partnerships",
-      question: "How can my company partner with WasteZero?",
+      question:
+        "How can my company partner with Waste Wise Humanitarian Initiative?",
       answer:
-        "We offer corporate sustainability programs, employee volunteer days, waste audits, and ESG reporting support. Contact our partnerships team at partnerships@wastezero.ng to discuss how we can help your company achieve sustainability goals.",
+        "We offer corporate sustainability programs, employee volunteer days, waste audits, and ESG reporting support. Contact our partnerships team at info@wastewisehumanitarianinitiative.org to discuss how we can help your company achieve sustainability goals.",
     },
     {
       id: "par-3",
@@ -162,50 +165,58 @@ export default function FAQSection() {
     { id: "partnerships", label: "Partnerships", count: 5 },
   ];
 
-  const filteredFAQs = faqItems.filter((item) => item.category === activeCategory);
+  const filteredFAQs = faqItems.filter(
+    (item) => item.category === activeCategory,
+  );
 
   const toggleExpand = (id: string) => {
     setExpandedId(expandedId === id ? null : id);
   };
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/20">
-      <div className="container">
+    <section
+      id='faq'
+      className='py-16 md:py-24 bg-gradient-to-b from-background to-muted/20'
+    >
+      <div className='container'>
         {/* Section Header */}
         <motion.div
-          className="text-center mb-16"
+          className='text-center mb-16'
           variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial='hidden'
+          whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4"
+            className='text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4'
             variants={itemVariants}
           >
             Frequently Asked Questions
           </motion.h2>
           <motion.p
-            className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto"
+            className='text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto'
             variants={itemVariants}
           >
-            Find answers to common questions about volunteering, donations, and partnerships
+            Find answers to common questions about volunteering, donations, and
+            partnerships
           </motion.p>
         </motion.div>
 
         {/* Category Tabs */}
         <motion.div
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className='flex flex-wrap justify-center gap-4 mb-12'
           variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial='hidden'
+          whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
           {categories.map((category) => (
             <motion.button
               key={category.id}
               onClick={() => {
-                setActiveCategory(category.id as "volunteering" | "donations" | "partnerships");
+                setActiveCategory(
+                  category.id as "volunteering" | "donations" | "partnerships",
+                );
                 setExpandedId(null);
               }}
               className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
@@ -218,44 +229,44 @@ export default function FAQSection() {
               whileTap={{ scale: 0.95 }}
             >
               {category.label}
-              <span className="ml-2 text-sm opacity-75">({category.count})</span>
+              <span className='ml-2 text-sm opacity-75'>
+                ({category.count})
+              </span>
             </motion.button>
           ))}
         </motion.div>
 
         {/* FAQ Accordion */}
         <motion.div
-          className="max-w-3xl mx-auto space-y-4"
+          className='max-w-3xl mx-auto space-y-4'
           variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial='hidden'
+          whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode='wait'>
             {filteredFAQs.map((item, idx) => (
               <motion.div
                 key={item.id}
                 variants={itemVariants}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
+                initial='hidden'
+                animate='visible'
+                exit='hidden'
                 transition={{ delay: idx * 0.05 }}
               >
                 <motion.button
                   onClick={() => toggleExpand(item.id)}
-                  className="w-full group relative overflow-hidden rounded-xl bg-white/50 backdrop-blur-md border border-white/20 p-6 hover:shadow-lg transition-all duration-300 text-left"
+                  className='w-full group relative overflow-hidden rounded-xl bg-white/50 backdrop-blur-md border border-white/20 p-6 hover:shadow-lg transition-all duration-300 text-left'
                   whileHover={{ scale: 1.01 }}
                 >
                   {/* Gradient Background on Hover */}
-                  <motion.div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 bg-gradient-to-r from-primary to-accent"
-                  />
+                  <motion.div className='absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 bg-gradient-to-r from-primary to-accent' />
 
                   {/* Content */}
-                  <div className="relative z-10 flex items-start justify-between gap-4">
-                    <div className="flex items-start gap-3 flex-1">
-                      <HelpCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <h3 className="text-lg md:text-xl font-display font-bold text-foreground group-hover:text-primary transition-colors">
+                  <div className='relative z-10 flex items-start justify-between gap-4'>
+                    <div className='flex items-start gap-3 flex-1'>
+                      <HelpCircle className='w-5 h-5 text-primary flex-shrink-0 mt-0.5' />
+                      <h3 className='text-lg md:text-xl font-display font-bold text-foreground group-hover:text-primary transition-colors'>
                         {item.question}
                       </h3>
                     </div>
@@ -264,9 +275,9 @@ export default function FAQSection() {
                     <motion.div
                       animate={{ rotate: expandedId === item.id ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
-                      className="flex-shrink-0"
+                      className='flex-shrink-0'
                     >
-                      <ChevronDown className="w-5 h-5 text-accent" />
+                      <ChevronDown className='w-5 h-5 text-accent' />
                     </motion.div>
                   </div>
 
@@ -278,10 +289,12 @@ export default function FAQSection() {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
+                        className='overflow-hidden'
                       >
-                        <div className="pt-4 mt-4 border-t border-border/40">
-                          <p className="text-foreground/80 leading-relaxed">{item.answer}</p>
+                        <div className='pt-4 mt-4 border-t border-border/40'>
+                          <p className='text-foreground/80 leading-relaxed'>
+                            {item.answer}
+                          </p>
                         </div>
                       </motion.div>
                     )}
@@ -294,24 +307,24 @@ export default function FAQSection() {
 
         {/* Still Have Questions CTA */}
         <motion.div
-          className="mt-16 text-center"
+          className='mt-16 text-center'
           variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial='hidden'
+          whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.p
-            className="text-lg text-foreground/70 mb-6"
+            className='text-lg text-foreground/70 mb-6'
             variants={itemVariants}
           >
             Didn't find your answer? We're here to help!
           </motion.p>
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className='flex flex-col sm:flex-row gap-4 justify-center'
             variants={containerVariants}
           >
             <motion.button
-              className="px-8 py-3 rounded-lg font-semibold bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg hover:scale-105 active:scale-97 transition-all duration-300"
+              className='px-8 py-3 rounded-lg font-semibold bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg hover:scale-105 active:scale-97 transition-all duration-300'
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
@@ -319,7 +332,7 @@ export default function FAQSection() {
               Contact Us
             </motion.button>
             <motion.button
-              className="px-8 py-3 rounded-lg font-semibold border-2 border-primary text-primary hover:bg-primary/5 transition-all duration-300"
+              className='px-8 py-3 rounded-lg font-semibold border-2 border-primary text-primary hover:bg-primary/5 transition-all duration-300'
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
@@ -331,25 +344,27 @@ export default function FAQSection() {
 
         {/* Contact Info */}
         <motion.div
-          className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto"
+          className='mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto'
           variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial='hidden'
+          whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.div
-            className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 border border-primary/20"
+            className='bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 border border-primary/20'
             variants={itemVariants}
           >
-            <p className="font-semibold text-primary mb-2">Email</p>
-            <p className="text-foreground/80">info@wastezero.ng</p>
+            <p className='font-semibold text-primary mb-2'>Email</p>
+            <p className='text-foreground/80'>
+              info@wastewisehumanitarianinitiative.org
+            </p>
           </motion.div>
           <motion.div
-            className="bg-gradient-to-br from-accent/10 to-secondary/10 rounded-xl p-6 border border-accent/20"
+            className='bg-gradient-to-br from-accent/10 to-secondary/10 rounded-xl p-6 border border-accent/20'
             variants={itemVariants}
           >
-            <p className="font-semibold text-accent mb-2">Phone</p>
-            <p className="text-foreground/80">+234 (0) 123 456 7890</p>
+            <p className='font-semibold text-accent mb-2'>Phone</p>
+            <p className='text-foreground/80'>+234 (0) 123 456 7890</p>
           </motion.div>
         </motion.div>
       </div>

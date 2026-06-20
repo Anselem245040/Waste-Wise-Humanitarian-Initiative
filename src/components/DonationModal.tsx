@@ -34,7 +34,9 @@ export default function DonationModal({ isOpen, onClose }: DonationModalProps) {
   const handleCopy = (text: string, field: string) => {
     navigator.clipboard.writeText(text);
     setCopied(field);
-    setTimeout(() => setCopied(null), 2000);
+    setTimeout(() => {
+      setCopied(null);
+    }, 2000);
   };
 
   // Modal animation variants
@@ -94,7 +96,7 @@ export default function DonationModal({ isOpen, onClose }: DonationModalProps) {
                     <div className='flex items-center gap-3'>
                       <Heart className='w-6 h-6 text-white fill-white' />
                       <h2 className='text-2xl font-display font-bold text-white'>
-                        Support WasteZero
+                        Support WHI
                       </h2>
                     </div>
                     <button
@@ -129,14 +131,14 @@ export default function DonationModal({ isOpen, onClose }: DonationModalProps) {
                           key: "name",
                         },
                         {
-                          label: "Account Number",
+                          label: "Account Number (USD)",
                           value: accountDetails.accountNumber1,
-                          key: "number",
+                          key: "usd",
                         },
                         {
-                          label: "Account Number",
+                          label: "Account Number (Naira)",
                           value: accountDetails.accountNumber2,
-                          key: "number",
+                          key: "naira",
                         },
                         {
                           label: "Bank",
