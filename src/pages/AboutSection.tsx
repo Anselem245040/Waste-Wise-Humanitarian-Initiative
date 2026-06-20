@@ -129,7 +129,7 @@ export default function AboutSection() {
         >
           {/* Vision */}
           <motion.div
-            className='bg-gradient-to-r from-primary/40 to-secondary/40 rounded-2xl p-8 md:p-10 border border-primary/20'
+            className='bg-gradient-to-r from-primary/40 to-secondary/40 rounded-2xl p-8 md:p-10 border border-primary/20 text-center flex flex-col items-center justify-center'
             variants={itemVariants}
           >
             <h3 className='text-2xl font-display font-bold mb-4 text-primary'>
@@ -144,7 +144,7 @@ export default function AboutSection() {
 
           {/* Mission */}
           <motion.div
-            className='bg-gradient-to-r from-secondary/40 to-accent/40 rounded-2xl p-8 md:p-10 border border-secondary/20'
+            className='bg-gradient-to-r from-secondary/40 to-accent/40 rounded-2xl p-8 md:p-10 border border-secondary/20 text-center flex flex-col items-center justify-center'
             variants={itemVariants}
           >
             <h3 className='text-2xl font-display font-bold mb-4 text-secondary'>
@@ -218,10 +218,10 @@ export default function AboutSection() {
               return (
                 <motion.div
                   key={idx}
-                  className='bg-gradient-to-br from-primary/40 to-accent/40 backdrop-blur-md border border-white/20 rounded-2xl p-8 hover:shadow-lg hover:scale-105 transition-all duration-300 group'
+                  className='bg-gradient-to-br from-primary/40 to-accent/40 backdrop-blur-md border border-white/20 rounded-2xl p-8 hover:shadow-lg hover:scale-105 transition-all duration-300 group text-center flex flex-col items-center'
                   variants={itemVariants}
                 >
-                  <div className='w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4 group-hover:shadow-lg transition-shadow'>
+                  <div className='w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4 group-hover:shadow-lg transition-shadow mx-auto'>
                     <Icon className='w-6 h-6 text-white' />
                   </div>
                   <h4 className='text-xl font-display font-bold mb-2 text-foreground'>
@@ -249,13 +249,13 @@ export default function AboutSection() {
             Leadership Team
           </motion.h3>
           <motion.div
-            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'
+            className='flex flex-wrap justify-center gap-8 max-w-4xl mx-auto w-full'
             variants={containerVariants}
           >
             {teamMembers.map((member, idx) => (
               <motion.div
                 key={idx}
-                className='bg-gradient-to-br from-secondary/40 to-primary/40 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:shadow-lg hover:scale-105 transition-all duration-300 group'
+                className='bg-gradient-to-br from-secondary/40 to-primary/40 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:shadow-lg hover:scale-105 transition-all duration-300 group w-full sm:w-[calc(50%-1rem)] md:w-64'
                 variants={itemVariants}
               >
                 <div className='w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden flex items-center justify-center group-hover:shadow-lg transition-shadow'>
@@ -279,32 +279,6 @@ export default function AboutSection() {
               </motion.div>
             ))}
           </motion.div>
-        </motion.div>
-
-        {/* Quick Stats */}
-        <motion.div
-          className='grid grid-cols-1 md:grid-cols-3 gap-8'
-          variants={containerVariants}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {[
-            { number: "2019", label: "Founded" },
-            { number: "25+", label: "States Active" },
-            { number: "500+", label: "Team Members" },
-          ].map((stat, idx) => (
-            <motion.div
-              key={idx}
-              className='bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8 text-center border border-primary/20'
-              variants={itemVariants}
-            >
-              <p className='text-4xl md:text-5xl font-display font-bold text-primary mb-2'>
-                {stat.number}
-              </p>
-              <p className='text-lg text-foreground/70'>{stat.label}</p>
-            </motion.div>
-          ))}
         </motion.div>
       </div>
     </section>

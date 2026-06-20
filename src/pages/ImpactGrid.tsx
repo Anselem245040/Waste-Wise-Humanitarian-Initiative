@@ -48,11 +48,11 @@ function ImpactCard({
 
       {/* Content */}
       <div
-        className={`relative z-10 p-6 md:p-8 h-full flex flex-col justify-between`}
+        className={`relative z-10 p-6 md:p-8 h-full flex flex-col items-center justify-center text-center`}
       >
         {/* Icon */}
         <motion.div
-          className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-shadow`}
+          className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-shadow mx-auto`}
           style={{
             background: `linear-gradient(135deg, var(--color-${gradient}), var(--color-${accentColor}))`,
           }}
@@ -68,14 +68,14 @@ function ImpactCard({
         </h3>
 
         {/* Description */}
-        <p className='text-sm md:text-base text-foreground/70 leading-relaxed group-hover:text-foreground/80 transition-colors'>
+        <p className='text-sm md:text-base text-foreground/70 leading-relaxed group-hover:text-foreground/80 transition-colors mb-4'>
           {description}
         </p>
 
         {/* Floating Badge */}
         <a
           href='/learn-more'
-          className='mt-4 inline-flex items-center gap-2 text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity'
+          className='inline-flex items-center gap-2 text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity justify-center'
         >
           <span>Learn More</span>
           <span>→</span>

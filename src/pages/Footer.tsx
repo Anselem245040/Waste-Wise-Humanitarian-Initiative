@@ -1,4 +1,4 @@
-import { Leaf, Mail, Phone, MapPin, Heart } from "lucide-react";
+import { Mail, Phone, MapPin, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 
 /**
@@ -47,28 +47,33 @@ export default function Footer({ onDonateClick }: FooterProps) {
 
         {/* Content Grid */}
         <motion.div
-          className='grid grid-cols-1 md:grid-cols-4 gap-12 mb-12'
+          className='grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 text-center'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
           {/* Brand Column */}
-          <motion.div className='space-y-4' variants={itemVariants}>
-            <div className='flex items-center gap-2'>
+          <motion.div
+            className='space-y-4 flex flex-col items-center'
+            variants={itemVariants}
+          >
+            <div className='flex items-center justify-center gap-2'>
               <div className='w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow relative'>
                 {/* WHI Shield Logo */}
                 <img src='logo.jpeg' alt='logo' />
               </div>
             </div>
-            <h3 className='font-display font-bold text-lg text-white'>WHI</h3>
-            <p className='text-sm text-background/70 leading-relaxed'>
+            <h3 className='font-display font-bold text-lg text-white text-center'>
+              WHI
+            </h3>
+            <p className='text-sm text-background/70 leading-relaxed text-center'>
               Waste Wise Humanitarian Initiative: Educating. Empowering.
               Transforming. Building a sustainable, waste-free world through
               community engagement and youth empowerment.
             </p>
             {/* Social Links */}
-            <div className='flex gap-3 pt-2'>
+            <div className='flex justify-center gap-3 pt-2'>
               {["twitter", "facebook", "instagram", "linkedin"].map(
                 (social) => (
                   <a
@@ -85,11 +90,14 @@ export default function Footer({ onDonateClick }: FooterProps) {
           </motion.div>
 
           {/* Quick Links */}
-          <motion.div className='space-y-4' variants={itemVariants}>
-            <h4 className='font-display font-bold text-sm text-white'>
+          <motion.div
+            className='space-y-4 flex flex-col items-center'
+            variants={itemVariants}
+          >
+            <h4 className='font-display font-bold text-sm text-white text-center w-full'>
               Quick Links
             </h4>
-            <ul className='space-y-2 text-sm'>
+            <ul className='space-y-2 text-sm text-center w-full'>
               {["About Us", "Our Impact", "Blog", "Careers"].map((link) => (
                 <li key={link}>
                   <a
@@ -104,11 +112,14 @@ export default function Footer({ onDonateClick }: FooterProps) {
           </motion.div>
 
           {/* Resources */}
-          <motion.div className='space-y-4' variants={itemVariants}>
-            <h4 className='font-display font-bold text-sm text-white'>
+          <motion.div
+            className='space-y-4 flex flex-col items-center'
+            variants={itemVariants}
+          >
+            <h4 className='font-display font-bold text-sm text-white text-center w-full'>
               Resources
             </h4>
-            <ul className='space-y-2 text-sm'>
+            <ul className='space-y-2 text-sm text-center w-full'>
               {["Documentation", "FAQ", "Support", "Privacy Policy"].map(
                 (link) => (
                   <li key={link}>
@@ -125,32 +136,35 @@ export default function Footer({ onDonateClick }: FooterProps) {
           </motion.div>
 
           {/* Contact */}
-          <motion.div className='space-y-4' variants={itemVariants}>
-            <h4 className='font-display font-bold text-sm text-white'>
+          <motion.div
+            className='space-y-4 flex flex-col items-center'
+            variants={itemVariants}
+          >
+            <h4 className='font-display font-bold text-sm text-white text-center w-full'>
               Contact
             </h4>
-            <div className='space-y-3 text-sm'>
-              <div className='flex items-start gap-2'>
-                <Mail className='w-4 h-4 mt-0.5 flex-shrink-0 text-accent' />
+            <div className='space-y-3 text-sm text-center w-full flex flex-col items-center'>
+              <div className='flex items-center justify-center gap-2 w-full'>
+                <Mail className='w-4 h-4 flex-shrink-0 text-accent' />
                 <a
                   href='mailto:wastewisehumanitarianinitiativ@gmail.com'
-                  className='text-background/70 hover:text-background transition-colors break-all'
+                  className='text-background/70 hover:text-background transition-colors break-all text-center'
                 >
                   wastewisehumanitarianinitiativ@gmail.com
                 </a>
               </div>
-              <div className='flex items-start gap-2'>
-                <Phone className='w-4 h-4 mt-0.5 flex-shrink-0 text-accent' />
+              <div className='flex items-center justify-center gap-2 w-full'>
+                <Phone className='w-4 h-4 flex-shrink-0 text-accent' />
                 <a
                   href='tel:+2348159713721'
-                  className='text-background/70 hover:text-background transition-colors'
+                  className='text-background/70 hover:text-background transition-colors text-center'
                 >
                   +234 815 971 3721
                 </a>
               </div>
-              <div className='flex items-start gap-2'>
-                <MapPin className='w-4 h-4 mt-0.5 flex-shrink-0 text-accent' />
-                <p className='text-background/70'>Enugu, Nigeria</p>
+              <div className='flex items-center justify-center gap-2 w-full'>
+                <MapPin className='w-4 h-4 flex-shrink-0 text-accent' />
+                <p className='text-background/70 text-center'>Enugu, Nigeria</p>
               </div>
             </div>
           </motion.div>
@@ -183,12 +197,12 @@ export default function Footer({ onDonateClick }: FooterProps) {
           {/* Copyright */}
           <motion.div
             variants={itemVariants}
-            className='flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-background/60'
+            className='flex flex-col items-center justify-center gap-4 text-xs text-background/60'
           >
-            <p>
+            <p className='text-center'>
               © 2026 Waste Wise Humanitarian Initiative. All rights reserved.
             </p>
-            <div className='flex gap-6'>
+            <div className='flex justify-center gap-6'>
               <a href='#' className='hover:text-background transition-colors'>
                 Privacy Policy
               </a>

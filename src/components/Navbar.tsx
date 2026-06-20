@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Menu, ChevronDown } from "lucide-react";
+import { X, Menu } from "lucide-react";
 import { Link } from "wouter";
 
 /**
@@ -22,15 +22,11 @@ interface NavbarProps {
 interface NavLink {
   label: string;
   href: string;
-  submenu?: { label: string; href: string }[];
 }
 
 export default function Navbar({ onDonateClick }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(
-    null,
-  );
 
   // Handle scroll effect
   const handleScroll = () => {
@@ -59,39 +55,18 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
     {
       label: "About",
       href: "#about",
-      submenu: [
-        { label: "Our Mission", href: "#about" },
-        { label: "Core Values", href: "#about" },
-        { label: "Leadership Team", href: "#about" },
-      ],
     },
     {
       label: "Services",
       href: "#services",
-      submenu: [
-        { label: "Waste Collection", href: "#services" },
-        { label: "Recycling & Processing", href: "#services" },
-        { label: "Data & Analytics", href: "#services" },
-        { label: "Community Programs", href: "#services" },
-      ],
     },
     {
       label: "Impact",
       href: "#impact-details",
-      submenu: [
-        { label: "Impact Stories", href: "#impact-details" },
-        { label: "Case Studies", href: "#impact-details" },
-        { label: "Global Metrics", href: "#impact-details" },
-      ],
     },
     {
       label: "Contact",
       href: "#contact",
-      submenu: [
-        { label: "Get In Touch", href: "#contact" },
-        { label: "Office Locations", href: "#contact" },
-        { label: "Business Hours", href: "#contact" },
-      ],
     },
   ];
 
@@ -221,24 +196,11 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
                   animate='visible'
                 >
                   <button
-                    onClick={() =>
-                      setMobileOpenDropdown(
-                        mobileOpenDropdown === link.label ? null : link.label,
-                      )
-                    }
-                    className='w-full flex items-center justify-between px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors duration-200'
+                    onClick={() => setIsOpen(false)}
+                    className='w-full flex items-center justify-center px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors duration-200 text-center'
                   >
                     <span>{link.label}</span>
-                    {link.submenu && (
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-300 ${
-                          mobileOpenDropdown === link.label ? "rotate-180" : ""
-                        }`}
-                      />
-                    )}
                   </button>
-
-                  {/* Mobile Dropdown */}
                 </motion.div>
               ))}
 
@@ -255,7 +217,7 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
                   onDonateClick();
                   setIsOpen(false);
                 }}
-                className='w-full px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg transition-all duration-300'
+                className='w-full px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg transition-all duration-300 text-center'
               >
                 Donate Now
               </motion.button>
@@ -266,11 +228,11 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
                 custom={navLinks.length + 1}
                 initial='hidden'
                 animate='visible'
-                className='pt-4 space-y-2 text-sm text-foreground/60'
+                className='pt-4 space-y-2 text-sm text-foreground/60 text-center flex flex-col items-center justify-center'
               >
-                <p>wastewisehumanitarianinitiav@gmail.com</p>
-                <p>📱 +234 8159713721</p>
-                <p>📍 Enugu, Nigeria</p>
+                <p className='text-center'>wastewisehumanitarianinitiav@gmail.com</p>
+                <p className='text-center'>📱 +234 8159713721</p>
+                <p className='text-center'>📍 Enugu, Nigeria</p>
               </motion.div>
             </div>
           </motion.div>

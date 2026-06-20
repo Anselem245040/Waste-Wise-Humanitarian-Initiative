@@ -1,4 +1,3 @@
-import Footer from "./Footer";
 import Hero from "./Hero";
 import ImpactGrid from "./ImpactGrid";
 import GlobalStatistics from "./GlobalStatistics";
@@ -6,6 +5,8 @@ import ServicesSection from "./ServicesSection";
 import Gallery from "./Gallery";
 import CTABanner from "./CTABanner";
 import SocialMediaFeed from "./SocialMediaFeed";
+import ContactSection from "./ContactSection";
+import AboutSection from "./AboutSection";
 
 /**
  * Premium Home Page - Waste Wise Humanitarian Initiative (WHI)
@@ -26,6 +27,9 @@ export default function Home() {
       {/* Impact Grid Section */}
       <ImpactGrid />
 
+      {/* about section */}
+      <AboutSection />
+
       {/* Global Statistics Section */}
       <GlobalStatistics />
 
@@ -41,8 +45,8 @@ export default function Home() {
       {/* Social Media Feed Section */}
       <SocialMediaFeed />
 
-      {/* Footer */}
-      <Footer />
+      {/* contact section */}
+      <ContactSection />
     </div>
   );
 }

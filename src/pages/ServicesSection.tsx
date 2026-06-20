@@ -148,7 +148,7 @@ export default function ServicesSection() {
             return (
               <motion.div
                 key={idx}
-                className='group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/40 to-secondary/40 backdrop-blur-md border border-white/20 p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300'
+                className='group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/40 to-secondary/40 backdrop-blur-md border border-white/20 p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center flex flex-col items-center justify-center'
                 variants={itemVariants}
               >
                 {/* Gradient Background */}
@@ -158,7 +158,7 @@ export default function ServicesSection() {
 
                 {/* Icon */}
                 <motion.div
-                  className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-shadow bg-gradient-to-br ${service.gradient}`}
+                  className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-shadow bg-gradient-to-br ${service.gradient} mx-auto`}
                   whileHover={{ rotate: 5, scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -166,20 +166,20 @@ export default function ServicesSection() {
                 </motion.div>
 
                 {/* Content */}
-                <div className='relative z-10'>
-                  <h3 className='text-xl md:text-2xl font-display font-bold text-foreground mb-2 group-hover:text-primary transition-colors'>
+                <div className='relative z-10 w-full flex flex-col items-center'>
+                  <h3 className='text-xl md:text-2xl font-display font-bold text-foreground mb-2 group-hover:text-primary transition-colors text-center'>
                     {service.title}
                   </h3>
-                  <p className='text-foreground/70 mb-6'>
+                  <p className='text-foreground/70 mb-6 text-center'>
                     {service.description}
                   </p>
 
                   {/* Features List */}
-                  <ul className='space-y-2 mb-6'>
+                  <ul className='flex flex-col items-center space-y-2 mb-6'>
                     {service.features.map((feature, fidx) => (
                       <li
                         key={fidx}
-                        className='flex items-center gap-2 text-sm text-foreground/60'
+                        className='flex items-center justify-center gap-2 text-sm text-foreground/60'
                       >
                         <div className='w-1.5 h-1.5 rounded-full bg-accent' />
                         {feature}
@@ -190,7 +190,7 @@ export default function ServicesSection() {
                   {/* CTA */}
                   <a
                     href='/learn-more'
-                    className='inline-flex items-center gap-2 text-accent font-semibold hover:text-primary transition-colors group/btn'
+                    className='inline-flex items-center justify-center gap-2 text-accent font-semibold hover:text-primary transition-colors group/btn w-full text-center'
                   >
                     Learn More
                     <ArrowRight className='w-4 h-4 group-hover/btn:translate-x-1 transition-transform' />

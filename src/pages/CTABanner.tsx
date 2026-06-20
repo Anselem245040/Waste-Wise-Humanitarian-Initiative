@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Users, Heart, Zap, ArrowRight } from "lucide-react";
+import { Users, Zap, ArrowRight } from "lucide-react";
 
 /**
  * Premium CTA Banner Component
@@ -113,7 +113,7 @@ export default function CTABanner() {
 
             {/* CTA Buttons Grid */}
             <motion.div
-              className='grid grid-cols-1 md:grid-cols-3 gap-6'
+              className='flex flex-col md:flex-row justify-center gap-6 max-w-4xl mx-auto w-full'
               variants={containerVariants}
             >
               {ctaOptions.map((option, idx) => {
@@ -122,7 +122,7 @@ export default function CTABanner() {
                   <motion.a
                     key={idx}
                     href='/learn-more'
-                    className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${option.gradient} p-8 text-white hover:shadow-2xl transition-all duration-300 transform hover:scale-105`}
+                    className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${option.gradient} p-8 text-white hover:shadow-2xl transition-all duration-300 transform hover:scale-105 w-full md:w-1/2 flex flex-col items-center justify-center text-center`}
                     variants={itemVariants}
                     whileHover={{ scale: 1.05, y: -5 }}
                     whileTap={{ scale: 0.95 }}
@@ -146,24 +146,24 @@ export default function CTABanner() {
                     />
 
                     {/* Content */}
-                    <div className='relative z-10'>
+                    <div className='relative z-10 w-full flex flex-col items-center'>
                       <motion.div
-                        className='w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-white/30 transition-colors'
+                        className='w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-white/30 transition-colors mx-auto'
                         whileHover={{ rotate: 10, scale: 1.1 }}
                         transition={{ duration: 0.3 }}
                       >
                         <Icon className='w-7 h-7 text-white' />
                       </motion.div>
 
-                      <h3 className='text-xl md:text-2xl font-display font-bold mb-2 text-left'>
+                      <h3 className='text-xl md:text-2xl font-display font-bold mb-2 text-center w-full'>
                         {option.title}
                       </h3>
-                      <p className='text-white/90 mb-6 text-left text-sm md:text-base'>
+                      <p className='text-white/90 mb-6 text-center text-sm md:text-base w-full'>
                         {option.description}
                       </p>
 
                       <motion.div
-                        className='flex items-center gap-2 text-white font-semibold group-hover:gap-3 transition-all duration-300'
+                        className='flex items-center justify-center gap-2 text-white font-semibold group-hover:gap-3 transition-all duration-300 w-full'
                         whileHover={{ x: 5 }}
                       >
                         <span>{option.cta}</span>

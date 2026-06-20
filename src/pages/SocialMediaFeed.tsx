@@ -207,7 +207,7 @@ export default function SocialMediaFeed() {
 
         {/* Social Posts Grid */}
         <motion.div
-          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+          className='flex flex-wrap justify-center gap-8 max-w-5xl mx-auto w-full'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
@@ -226,7 +226,7 @@ export default function SocialMediaFeed() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
-                  className='group'
+                  className='group w-full max-w-sm'
                 >
                   <a
                     href={post.url}
@@ -237,24 +237,22 @@ export default function SocialMediaFeed() {
                     <div className='bg-white/50 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden hover:shadow-xl hover:border-white/40 transition-all duration-300 h-full flex flex-col group-hover:scale-105'>
                       {/* Platform Badge & Header */}
                       <div
-                        className={`bg-gradient-to-r ${platformConfig.bg} p-4 flex items-center justify-between`}
+                        className={`bg-gradient-to-r ${platformConfig.bg} p-4 flex flex-col items-center justify-center text-center gap-3 relative`}
                       >
-                        <div className='flex items-center gap-3'>
-                          <img
-                            src={post.avatar}
-                            alt={post.author}
-                            className='w-10 h-10 rounded-full border-2 border-white/30'
-                          />
-                          <div>
-                            <p className='text-white font-semibold text-sm'>
-                              {post.author}
-                            </p>
-                            <p className='text-white/80 text-xs'>
-                              {post.handle}
-                            </p>
-                          </div>
+                        <img
+                          src={post.avatar}
+                          alt={post.author}
+                          className='w-12 h-12 rounded-full border-2 border-white/30 mx-auto'
+                        />
+                        <div className='flex flex-col items-center'>
+                          <p className='text-white font-semibold text-sm text-center'>
+                            {post.author}
+                          </p>
+                          <p className='text-white/80 text-xs text-center'>
+                            {post.handle}
+                          </p>
                         </div>
-                        <PlatformIcon className='w-5 h-5 text-white' />
+                        <PlatformIcon className='absolute top-4 right-4 w-5 h-5 text-white' />
                       </div>
 
                       {/* Post Image */}
@@ -270,34 +268,34 @@ export default function SocialMediaFeed() {
                       )}
 
                       {/* Post Content */}
-                      <div className='p-4 flex-1 flex flex-col'>
-                        <p className='text-foreground/80 text-sm leading-relaxed mb-3 line-clamp-3'>
+                      <div className='p-4 flex-1 flex flex-col items-center justify-center text-center'>
+                        <p className='text-foreground/80 text-sm leading-relaxed mb-3 line-clamp-3 text-center'>
                           {post.content}
                         </p>
-                        <p className='text-xs text-foreground/50 mt-auto'>
+                        <p className='text-xs text-foreground/50 mt-auto text-center'>
                           {post.timestamp}
                         </p>
                       </div>
 
                       {/* Engagement Metrics */}
-                      <div className='px-4 py-3 border-t border-white/10 flex items-center justify-between text-xs text-foreground/60'>
-                        <div className='flex items-center gap-4'>
+                      <div className='px-4 py-3 border-t border-white/10 flex flex-col gap-3 items-center justify-center text-xs text-foreground/60 w-full'>
+                        <div className='flex items-center justify-center gap-6 w-full'>
                           <motion.div
-                            className='flex items-center gap-1 hover:text-primary transition-colors cursor-pointer'
+                            className='flex items-center justify-center gap-1 hover:text-primary transition-colors cursor-pointer'
                             whileHover={{ scale: 1.1 }}
                           >
                             <Heart className='w-4 h-4' />
                             <span>{(post.likes / 1000).toFixed(1)}K</span>
                           </motion.div>
                           <motion.div
-                            className='flex items-center gap-1 hover:text-primary transition-colors cursor-pointer'
+                            className='flex items-center justify-center gap-1 hover:text-primary transition-colors cursor-pointer'
                             whileHover={{ scale: 1.1 }}
                           >
                             <MessageCircle className='w-4 h-4' />
                             <span>{(post.comments / 100).toFixed(0)}K</span>
                           </motion.div>
                           <motion.div
-                            className='flex items-center gap-1 hover:text-primary transition-colors cursor-pointer'
+                            className='flex items-center justify-center gap-1 hover:text-primary transition-colors cursor-pointer'
                             whileHover={{ scale: 1.1 }}
                           >
                             <Share2 className='w-4 h-4' />
@@ -306,7 +304,7 @@ export default function SocialMediaFeed() {
                         </div>
                         <motion.div
                           whileHover={{ x: 4 }}
-                          className='flex items-center gap-1 text-primary font-semibold'
+                          className='flex items-center justify-center gap-1 text-primary font-semibold'
                         >
                           <span>View</span>
                           <ExternalLink className='w-3 h-3' />

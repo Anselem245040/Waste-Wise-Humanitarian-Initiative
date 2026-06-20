@@ -106,7 +106,7 @@ export default function Gallery() {
 
   return (
     <section
-      id='gallery'
+      id='impact-details'
       className='py-16 md:py-24 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5'
     >
       <div className='container'>
@@ -133,9 +133,9 @@ export default function Gallery() {
           </motion.p>
         </motion.div>
 
-        {/* Carousel Container */}
+        {/* Carousel Container (Mobile Only) */}
         <motion.div
-          className='relative'
+          className='relative block md:hidden'
           variants={itemVariants}
           initial='hidden'
           whileInView='visible'
@@ -149,10 +149,10 @@ export default function Gallery() {
               {galleryImages.map((image) => (
                 <div
                   key={image.id}
-                  className='flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0'
+                  className='flex-[0_0_100%] min-w-0 m-auto'
                 >
                   <motion.div
-                    className='relative group h-96 md:h-[500px] overflow-hidden rounded-2xl mx-2'
+                    className='relative group h-96 overflow-hidden rounded-2xl mx-2 text-center flex flex-col items-center justify-center'
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -167,23 +167,24 @@ export default function Gallery() {
                     <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 
                     {/* Category Badge */}
-                    <div className='absolute top-4 left-4 z-20'>
+                    <div className='absolute top-4 left-1/2 -translate-x-1/2 z-20'>
                       <span className='px-3 py-1 rounded-full bg-primary/90 text-white text-xs font-semibold backdrop-blur-md'>
                         {image.category}
                       </span>
                     </div>
 
                     {/* Content */}
-                    <div className='absolute inset-0 flex flex-col justify-end p-6 z-10'>
+                    <div className='absolute inset-0 flex flex-col justify-center items-center p-6 z-10 text-center'>
                       <motion.div
+                        className='flex flex-col items-center justify-center text-center'
                         initial={{ opacity: 0, y: 20 }}
                         whileHover={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <h3 className='text-white text-xl md:text-2xl font-display font-bold mb-2'>
+                        <h3 className='text-white text-xl font-display font-bold mb-2'>
                           {image.title}
                         </h3>
-                        <p className='text-white/90 text-sm md:text-base mb-4 line-clamp-2'>
+                        <p className='text-white/90 text-sm mb-4 line-clamp-2'>
                           {image.description}
                         </p>
                         <a
@@ -205,25 +206,25 @@ export default function Gallery() {
           <motion.button
             onClick={scrollPrev}
             disabled={!canScrollPrev}
-            className='absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 md:-translate-x-12 z-20 p-3 rounded-full bg-primary/90 text-white hover:bg-primary transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'
+            className='absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 p-2 rounded-full bg-primary/90 text-white hover:bg-primary transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <ChevronLeft className='w-6 h-6' />
+            <ChevronLeft className='w-5 h-5' />
           </motion.button>
 
           <motion.button
             onClick={scrollNext}
             disabled={!canScrollNext}
-            className='absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 md:translate-x-12 z-20 p-3 rounded-full bg-primary/90 text-white hover:bg-primary transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'
+            className='absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 p-2 rounded-full bg-primary/90 text-white hover:bg-primary transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <ChevronRight className='w-6 h-6' />
+            <ChevronRight className='w-5 h-5' />
           </motion.button>
 
           {/* Dot Indicators */}
-          <div className='flex justify-center gap-2 mt-8'>
+          <div className='flex justify-center gap-2 mt-6'>
             {scrollSnaps.map((_, index) => (
               <motion.button
                 key={index}
@@ -239,9 +240,72 @@ export default function Gallery() {
           </div>
 
           {/* Slide Counter */}
-          <div className='text-center mt-6 text-foreground/60 text-sm font-medium'>
+          <div className='text-center mt-4 text-foreground/60 text-sm font-medium'>
             {selectedIndex + 1} / {galleryImages.length}
           </div>
+        </motion.div>
+
+        {/* Grid Container (Desktop Only) */}
+        <motion.div
+          className='hidden md:flex flex-row justify-center gap-8 max-w-4xl mx-auto'
+          variants={containerVariants}
+          initial='hidden'
+          whileInView='visible'
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {galleryImages.map((image) => (
+            <div
+              key={image.id}
+              className='w-full md:w-1/2 max-w-sm'
+            >
+              <motion.div
+                className='relative group h-[500px] overflow-hidden rounded-2xl text-center flex flex-col items-center justify-center'
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Image */}
+                <img
+                  src={image.image}
+                  alt={image.title}
+                  className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'
+                />
+
+                {/* Overlay Gradient */}
+                <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+
+                {/* Category Badge */}
+                <div className='absolute top-4 left-1/2 -translate-x-1/2 z-20'>
+                  <span className='px-3 py-1 rounded-full bg-primary/90 text-white text-xs font-semibold backdrop-blur-md'>
+                    {image.category}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className='absolute inset-0 flex flex-col justify-center items-center p-6 z-10 text-center'>
+                  <motion.div
+                    className='flex flex-col items-center justify-center text-center'
+                    initial={{ opacity: 0, y: 20 }}
+                    whileHover={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <h3 className='text-white text-2xl font-display font-bold mb-2'>
+                      {image.title}
+                    </h3>
+                    <p className='text-white/90 text-sm md:text-base mb-4 line-clamp-2'>
+                      {image.description}
+                    </p>
+                    <a
+                      href='/full-gallery'
+                      className='inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent text-accent-foreground font-semibold hover:shadow-lg transition-all duration-300'
+                    >
+                      <Eye className='w-4 h-4' />
+                      <span>View Details</span>
+                    </a>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
+          ))}
         </motion.div>
 
         {/* CTA */}

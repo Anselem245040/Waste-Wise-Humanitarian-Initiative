@@ -1,4 +1,4 @@
-import { ArrowRight, Leaf, Zap, Users } from "lucide-react";
+import { ArrowRight, Leaf } from "lucide-react";
 import { motion } from "framer-motion";
 
 /**
