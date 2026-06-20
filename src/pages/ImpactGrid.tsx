@@ -125,7 +125,7 @@ export default function ImpactGrid() {
       icon: <Users className='w-7 h-7' />,
       title: "Communities Reached",
       description:
-        "Reach communities worldwide, creating grassroots environmental awareness and engagement through our global initiatives.",
+        "Reach communities, creating grassroots environmental awareness and engagement through our global initiatives.",
       gradient: "primary",
       accentColor: "secondary",
       size: "small",

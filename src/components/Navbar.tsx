@@ -28,7 +28,6 @@ interface NavLink {
 export default function Navbar({ onDonateClick }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(
     null,
   );
@@ -120,15 +119,6 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
     }),
   };
 
-  const dropdownVariants = {
-    hidden: { opacity: 0, y: -10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.2 },
-    },
-  };
-
   return (
     <>
       {/* Desktop & Mobile Navbar */}
@@ -161,51 +151,14 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
           {/* Desktop Navigation */}
           <div className='hidden md:flex items-center gap-8'>
             {navLinks.map((link) => (
-              <div
-                key={link.label}
-                className='relative group'
-                onMouseEnter={() => setOpenDropdown(link.label)}
-                onMouseLeave={() => setOpenDropdown(null)}
-              >
+              <div key={link.label} className='relative group'>
                 <a
                   href={link.href}
                   className='text-sm font-medium text-foreground/70 hover:text-primary transition-colors duration-200 relative flex items-center gap-1 group'
                 >
                   {link.label}
-                  {link.submenu && (
-                    <ChevronDown className='w-4 h-4 group-hover:rotate-180 transition-transform duration-300' />
-                  )}
                   <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300' />
                 </a>
-
-                {/* Desktop Dropdown */}
-                {link.submenu && (
-                  <AnimatePresence>
-                    {openDropdown === link.label && (
-                      <motion.div
-                        variants={dropdownVariants}
-                        initial='hidden'
-                        animate='visible'
-                        exit='hidden'
-                        className='absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-md border border-border/40 rounded-lg shadow-lg overflow-hidden'
-                      >
-                        {link.submenu.map((subitem, idx) => (
-                          <motion.a
-                            key={subitem.label}
-                            href={subitem.href}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: idx * 0.05 }}
-                            onClick={() => setOpenDropdown(null)}
-                            className='block px-4 py-3 text-sm text-foreground/70 hover:text-primary hover:bg-muted/50 transition-all duration-200 first:pt-4 last:pb-4'
-                          >
-                            {subitem.label}
-                          </motion.a>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                )}
               </div>
             ))}
           </div>
@@ -286,33 +239,6 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
                   </button>
 
                   {/* Mobile Dropdown */}
-                  <AnimatePresence>
-                    {link.submenu && mobileOpenDropdown === link.label && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className='overflow-hidden'
-                      >
-                        {link.submenu.map((subitem, sidx) => (
-                          <motion.a
-                            key={subitem.label}
-                            href={subitem.href}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: sidx * 0.05 }}
-                            onClick={() => {
-                              setIsOpen(false);
-                              setMobileOpenDropdown(null);
-                            }}
-                            className='block px-8 py-2 text-sm text-foreground/70 hover:text-primary hover:bg-muted/50 transition-colors duration-200'
-                          >
-                            {subitem.label}
-                          </motion.a>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </motion.div>
               ))}
 

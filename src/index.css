@@ -10,10 +10,10 @@
   ============================================================================
   
   Color Philosophy:
-  - Primary: WHI Logo Blue #2563EB (trust, modern, professional)
-  - Secondary: Vibrant Lime/Teal (energy, action, modern tech)
-  - Background: Crisp White & Light Grays (clean, accessible, premium)
-  - Accent: Bright Lime (high-contrast CTAs for conversion)
+  - Primary: Sage Green #7C9E7E (nature, trust, sustainability)
+  - Secondary: Slate Blue #4A6FA5 (professional, modern, reliable)
+  - Background: Warm White #FAF8F4 (clean, accessible, premium)
+  - Accent: Sage Green (harmonious, eco-friendly)
   
   Typography:
   - Display: Poppins Bold (modern, confident, trustworthy)
@@ -70,26 +70,26 @@
 
 /* Light Mode (Default) */
 :root {
-  /* Primary: WHI Logo Blue */
-  --primary: rgb(37, 99, 235);
+  /* Primary: Sage Green */
+  --primary: rgb(124, 158, 126);
   --primary-foreground: rgb(250, 250, 250);
 
-  /* Secondary: Teal (tech edge) */
-  --secondary: rgb(20, 184, 166);
+  /* Secondary: Slate Blue */
+  --secondary: rgb(74, 111, 165);
   --secondary-foreground: rgb(250, 250, 250);
 
-  /* Accent: Vibrant Lime (CTAs) */
-  --accent: rgb(163, 230, 53);
-  --accent-foreground: rgb(15, 23, 42);
+  /* Accent: Vibrant accent for CTAs */
+  --accent: rgb(124, 158, 126);
+  --accent-foreground: rgb(250, 250, 250);
 
   /* Sidebar */
-  --sidebar-primary: rgb(37, 99, 235);
+  --sidebar-primary: rgb(124, 158, 126);
   --sidebar-primary-foreground: rgb(250, 250, 250);
-  --sidebar-accent: rgb(163, 230, 53);
-  --sidebar-accent-foreground: rgb(15, 23, 42);
+  --sidebar-accent: rgb(74, 111, 165);
+  --sidebar-accent-foreground: rgb(250, 250, 250);
 
   /* Backgrounds & Text */
-  --background: rgb(255, 255, 255);
+  --background: rgb(250, 248, 244);
   --foreground: rgb(15, 23, 42);
   --card: rgb(255, 255, 255);
   --card-foreground: rgb(15, 23, 42);
@@ -101,28 +101,28 @@
   --muted-foreground: rgb(120, 113, 108);
 
   /* Borders & Inputs */
-  --border: rgb(226, 232, 240);
-  --input: rgb(241, 245, 249);
+  --border: rgb(224, 231, 225);
+  --input: rgb(245, 248, 246);
 
-  /* Focus Ring (Teal) */
-  --ring: rgb(20, 184, 166);
+  /* Focus Ring (Slate Blue) */
+  --ring: rgb(74, 111, 165);
 
   /* Destructive (Red) */
   --destructive: rgb(239, 68, 68);
   --destructive-foreground: rgb(250, 250, 250);
 
-  /* Chart Colors (Green to Lime gradient) */
-  --chart-1: rgb(34, 197, 94);
-  --chart-2: rgb(74, 222, 128);
-  --chart-3: rgb(20, 184, 166);
-  --chart-4: rgb(163, 230, 53);
-  --chart-5: rgb(206, 250, 121);
+  /* Chart Colors (Brand palette) */
+  --chart-1: rgb(124, 158, 126);
+  --chart-2: rgb(74, 111, 165);
+  --chart-3: rgb(159, 191, 161);
+  --chart-4: rgb(142, 169, 209);
+  --chart-5: rgb(206, 231, 210);
 
   /* Sidebar */
-  --sidebar: rgb(255, 255, 255);
+  --sidebar: rgb(250, 248, 244);
   --sidebar-foreground: rgb(15, 23, 42);
-  --sidebar-border: rgb(226, 232, 240);
-  --sidebar-ring: rgb(20, 184, 166);
+  --sidebar-border: rgb(224, 231, 225);
+  --sidebar-ring: rgb(74, 111, 165);
 
   /* Radius */
   --radius: 0.75rem;
@@ -135,22 +135,22 @@
 
 /* Dark Mode */
 .dark {
-  /* Primary: Lighter Forest Green */
-  --primary: rgb(74, 222, 128);
-  --primary-foreground: rgb(250, 250, 250);
+  /* Primary: Sage Green (lighter variant for dark mode) */
+  --primary: rgb(159, 191, 161);
+  --primary-foreground: rgb(15, 23, 42);
 
-  /* Secondary: Bright Teal */
-  --secondary: rgb(45, 212, 191);
+  /* Secondary: Slate Blue (lighter variant for dark mode) */
+  --secondary: rgb(142, 169, 209);
   --secondary-foreground: rgb(15, 23, 42);
 
-  /* Accent: Bright Lime */
-  --accent: rgb(206, 250, 121);
+  /* Accent: Sage Green accent */
+  --accent: rgb(124, 158, 126);
   --accent-foreground: rgb(15, 23, 42);
 
   /* Sidebar */
-  --sidebar-primary: rgb(74, 222, 128);
-  --sidebar-primary-foreground: rgb(250, 250, 250);
-  --sidebar-accent: rgb(206, 250, 121);
+  --sidebar-primary: rgb(159, 191, 161);
+  --sidebar-primary-foreground: rgb(15, 23, 42);
+  --sidebar-accent: rgb(142, 169, 209);
   --sidebar-accent-foreground: rgb(15, 23, 42);
 
   /* Backgrounds & Text */
@@ -169,25 +169,25 @@
   --border: rgb(51, 65, 85);
   --input: rgb(30, 41, 59);
 
-  /* Focus Ring (Bright Teal) */
-  --ring: rgb(45, 212, 191);
+  /* Focus Ring (Slate Blue) */
+  --ring: rgb(142, 169, 209);
 
   /* Destructive (Bright Red) */
   --destructive: rgb(248, 113, 113);
   --destructive-foreground: rgb(250, 250, 250);
 
   /* Chart Colors */
-  --chart-1: rgb(74, 222, 128);
-  --chart-2: rgb(52, 211, 153);
-  --chart-3: rgb(45, 212, 191);
-  --chart-4: rgb(206, 250, 121);
-  --chart-5: rgb(236, 252, 203);
+  --chart-1: rgb(159, 191, 161);
+  --chart-2: rgb(142, 169, 209);
+  --chart-3: rgb(124, 158, 126);
+  --chart-4: rgb(74, 111, 165);
+  --chart-5: rgb(206, 231, 210);
 
   /* Sidebar */
   --sidebar: rgb(30, 41, 59);
   --sidebar-foreground: rgb(248, 250, 252);
   --sidebar-border: rgb(51, 65, 85);
-  --sidebar-ring: rgb(45, 212, 191);
+  --sidebar-ring: rgb(142, 169, 209);
 
   /* Brand Colors (dark mode can reuse same brand tokens) */
   --brand-sage: #7c9e7e;

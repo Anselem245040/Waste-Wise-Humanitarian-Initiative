@@ -113,36 +113,6 @@ export default function Hero({ onDonateClick }: HeroProps) {
           </motion.div>
 
           {/* Trust Badges */}
-          <motion.div
-            className='flex flex-wrap gap-8 pt-8 justify-center'
-            variants={containerVariants}
-          >
-            <motion.div
-              className='flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg px-6 py-3 border border-white/20'
-              variants={itemVariants}
-            >
-              <div className='w-12 h-12 bg-accent/30 rounded-lg flex items-center justify-center flex-shrink-0'>
-                <Zap className='w-6 h-6 text-accent' />
-              </div>
-              <div>
-                <p className='text-lg font-semibold text-white'>50K+ Tons</p>
-                <p className='text-sm text-white/70'>Diverted Annually</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className='flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg px-6 py-3 border border-white/20'
-              variants={itemVariants}
-            >
-              <div className='w-12 h-12 bg-secondary/30 rounded-lg flex items-center justify-center flex-shrink-0'>
-                <Users className='w-6 h-6 text-secondary' />
-              </div>
-              <div>
-                <p className='text-lg font-semibold text-white'>100K+ People</p>
-                <p className='text-sm text-white/70'>Empowered</p>
-              </div>
-            </motion.div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -41,15 +41,7 @@ export default function CTABanner() {
       gradient: "from-primary to-secondary",
       hoverGradient: "from-primary/80 to-secondary/80",
     },
-    {
-      icon: Heart,
-      title: "Support Our Mission",
-      description:
-        "Account Name: Waste Wise Humanitarian Initiative Enugu | USD: 2048741114 | Naira: 2048740997 | First Bank Nig. PLC",
-      cta: "Donate Today",
-      gradient: "from-secondary to-accent",
-      hoverGradient: "from-secondary/80 to-accent/80",
-    },
+
     {
       icon: Zap,
       title: "Partner With Us",
@@ -231,35 +223,6 @@ export default function CTABanner() {
         </motion.div>
 
         {/* Stats Section Below Banner */}
-        <motion.div
-          className='mt-20 grid grid-cols-1 md:grid-cols-4 gap-8'
-          variants={containerVariants}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {[
-            { number: "50K+", label: "Volunteers Engaged" },
-            { number: "250+", label: "Communities Served" },
-            { number: "500T+", label: "Waste Diverted" },
-            { number: "100+", label: "Partnerships Active" },
-          ].map((stat, idx) => (
-            <motion.div
-              key={idx}
-              className='text-center'
-              variants={itemVariants}
-            >
-              <motion.p
-                className='text-4xl md:text-5xl font-display font-bold text-primary mb-2'
-                whileInView={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 0.5 }}
-              >
-                {stat.number}
-              </motion.p>
-              <p className='text-foreground/70 font-medium'>{stat.label}</p>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
