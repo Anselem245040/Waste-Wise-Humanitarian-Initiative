@@ -158,43 +158,6 @@ export default function AboutSection() {
             </p>
           </motion.div>
         </motion.div>
-
-        {/* Motto, Tagline, Slogan */}
-        <motion.div
-          className='mb-20 bg-gradient-to-r from-accent/40 to-primary/40 rounded-2xl p-8 md:p-12 border border-accent/20'
-          variants={itemVariants}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-8 text-center'>
-            <div>
-              <h4 className='text-lg font-display font-bold mb-2 text-foreground'>
-                Our Motto
-              </h4>
-              <p className='text-2xl md:text-3xl font-bold text-primary'>
-                Educating. Empowering. Transforming.
-              </p>
-            </div>
-            <div>
-              <h4 className='text-lg font-display font-bold mb-2 text-foreground'>
-                Our Tagline
-              </h4>
-              <p className='text-2xl md:text-3xl font-bold text-secondary'>
-                Together We Clean, Together We Grow
-              </p>
-            </div>
-            <div>
-              <h4 className='text-lg font-display font-bold mb-2 text-foreground'>
-                Our Slogan
-              </h4>
-              <p className='text-2xl md:text-3xl font-bold text-accent'>
-                Pollution to Possibility
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Core Values */}
         <motion.div
           className='mb-20'
