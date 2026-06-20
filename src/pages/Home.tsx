@@ -3,7 +3,6 @@ import ImpactGrid from "./ImpactGrid";
 import GlobalStatistics from "./GlobalStatistics";
 import ServicesSection from "./ServicesSection";
 import Gallery from "./Gallery";
-import CTABanner from "./CTABanner";
 import SocialMediaFeed from "./SocialMediaFeed";
 import ContactSection from "./ContactSection";
 import AboutSection from "./AboutSection";
@@ -38,9 +37,6 @@ export default function Home() {
 
       {/* Gallery Section */}
       <Gallery />
-
-      {/* CTA Banner Section */}
-      <CTABanner />
 
       {/* Social Media Feed Section */}
       <SocialMediaFeed />

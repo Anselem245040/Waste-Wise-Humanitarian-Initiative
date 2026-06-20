@@ -97,13 +97,14 @@ export default function Hero({ onDonateClick }: HeroProps) {
             className='flex flex-col sm:flex-row gap-4 pt-4'
             variants={itemVariants}
           >
-            <button
+            <a
+              href='#contact'
               onClick={onDonateClick}
               className='px-8 py-4 rounded-lg font-semibold bg-gradient-to-r from-accent to-secondary text-white hover:shadow-2xl hover:scale-105 active:scale-97 transition-all duration-300 flex items-center justify-center gap-2 text-base'
             >
-              Start Your Journey
+              Contact us
               <ArrowRight className='w-5 h-5' />
-            </button>
+            </a>
             <a
               href='/learn-more'
               className='px-8 py-4 rounded-lg font-semibold bg-white/20 backdrop-blur-md border-2 border-white text-white hover:bg-white/30 active:bg-white/40 transition-all duration-300 text-base'

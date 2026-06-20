@@ -222,7 +222,9 @@ export default function ServicesSection() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
-            Schedule a Consultation
+            <a href='#contact' className='text-white'>
+              Contact Us
+            </a>
           </motion.button>
         </motion.div>
       </div>
