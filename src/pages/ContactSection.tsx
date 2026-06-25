@@ -85,7 +85,7 @@ export default function ContactSection() {
       id='contact'
       className='bg-gradient-to-br from-white via-primary/5 to-muted/30 py-16 md:py-24'
     >
-      <div className='container'>
+      <div className=''>
         <motion.div
           className='mb-12 grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-end'
           variants={containerVariants}

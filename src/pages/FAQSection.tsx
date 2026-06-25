@@ -188,7 +188,7 @@ export default function FAQSection() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.h2
-            className='text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4'
+            className='text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4'
             variants={itemVariants}
           >
             Frequently Asked Questions

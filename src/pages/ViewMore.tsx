@@ -109,7 +109,7 @@ export default function ViewMore() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
               Our <span className="text-primary">Impact</span> Stories
             </h1>
             <p className="text-xl text-foreground/60">
@@ -172,7 +172,7 @@ export default function ViewMore() {
       {/* CTA Section */}
       <div className="container py-16">
         <motion.div
-          className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary to-accent p-12 md:p-16 text-center"
+          className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary to-accent p-6 sm:p-12 md:p-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

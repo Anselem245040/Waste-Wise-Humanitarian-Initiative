@@ -54,10 +54,10 @@ export default function CTABanner() {
 
   return (
     <section className='py-16 md:py-24 bg-gradient-to-br from-secondary/5 via-accent/5 to-primary/5'>
-      <div className='container'>
+      <div className='r'>
         {/* Main CTA Banner */}
         <motion.div
-          className='relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary via-secondary to-accent p-12 md:p-20 text-white shadow-2xl'
+          className='relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary via-secondary to-accent p-8 sm:p-12 md:p-20 text-white shadow-2xl'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
@@ -65,7 +65,7 @@ export default function CTABanner() {
         >
           {/* Animated Background Elements */}
           <motion.div
-            className='absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl'
+            className='absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-white/10 rounded-full blur-3xl pointer-events-none'
             animate={{
               x: [0, 50, 0],
               y: [0, 30, 0],
@@ -77,7 +77,7 @@ export default function CTABanner() {
             }}
           />
           <motion.div
-            className='absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl'
+            className='absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 bg-white/5 rounded-full blur-3xl pointer-events-none'
             animate={{
               x: [0, -50, 0],
               y: [0, -30, 0],
@@ -96,7 +96,7 @@ export default function CTABanner() {
               variants={containerVariants}
             >
               <motion.h2
-                className='text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4'
+                className='text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4'
                 variants={itemVariants}
               >
                 The Crisis Won't Solve Itself

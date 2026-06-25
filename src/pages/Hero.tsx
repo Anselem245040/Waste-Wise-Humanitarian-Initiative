@@ -1,4 +1,4 @@
-﻿import { ArrowRight, Leaf } from "lucide-react";
+import { ArrowRight, Leaf } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface HeroProps {
@@ -33,16 +33,15 @@ export default function Hero({ onDonateClick }: HeroProps) {
         backgroundImage: `url('Hero.jpeg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundAttachment: "fixed",
       }}
     >
       <div className='absolute inset-0 bg-black/50' />
       <div className='absolute inset-0 bg-gradient-to-r from-foreground/75 via-foreground/40 to-primary/10' />
       <div className='absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent' />
 
-      <div className='container relative z-10'>
+      <div className=' relative z-10'>
         <motion.div
-          className='max-w-4xl py-20 md:py-28 lg:py-32'
+          // className='max-w-4xl py-20 md:py-28 lg:py-32'
           variants={containerVariants}
           initial='hidden'
           animate='visible'

@@ -123,7 +123,7 @@ export default function LearnMore() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
               Learn About Our <span className="text-primary">Services</span>
             </h1>
             <p className="text-xl text-foreground/60">
@@ -194,7 +194,7 @@ export default function LearnMore() {
       {/* CTA Section */}
       <div className="container py-16">
         <motion.div
-          className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary to-accent p-12 md:p-16 text-center"
+          className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary to-accent p-6 sm:p-12 md:p-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

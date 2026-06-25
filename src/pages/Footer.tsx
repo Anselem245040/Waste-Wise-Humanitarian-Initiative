@@ -1,4 +1,11 @@
-﻿import { ArrowRight, ExternalLink, Heart, Mail, MapPin, Phone } from "lucide-react";
+﻿import {
+  ArrowRight,
+  ExternalLink,
+  Heart,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 interface FooterProps {
@@ -41,7 +48,7 @@ export default function Footer({ onDonateClick }: FooterProps) {
 
   return (
     <footer className='border-t border-white/10 bg-foreground text-background'>
-      <div className='container py-14 md:py-20'>
+      <div className='py-14 md:py-20'>
         <motion.div
           className='mb-12 grid gap-8 rounded-lg border border-white/10 bg-white/5 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8'
           variants={containerVariants}
@@ -54,7 +61,8 @@ export default function Footer({ onDonateClick }: FooterProps) {
               Make a Difference
             </p>
             <h2 className='mt-3 max-w-2xl text-2xl font-display font-bold leading-tight text-white md:text-4xl'>
-              Support our mission to transform waste management across Nigeria and help turn cleaner communities into lasting opportunity
+              Support our mission to transform waste management across Nigeria
+              and help turn cleaner communities into lasting opportunity
             </h2>
           </motion.div>
           <motion.button
@@ -176,10 +184,16 @@ export default function Footer({ onDonateClick }: FooterProps) {
         <div className='mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-background/50 md:flex-row md:items-center md:justify-between'>
           <p>© 2026 Waste Wise Humanitarian Initiative. All rights reserved.</p>
           <div className='flex gap-5'>
-            <a href='#contact' className='transition-colors hover:text-background'>
+            <a
+              href='#contact'
+              className='transition-colors hover:text-background'
+            >
               Contact
             </a>
-            <a href='/learn-more' className='transition-colors hover:text-background'>
+            <a
+              href='/learn-more'
+              className='transition-colors hover:text-background'
+            >
               Learn More
             </a>
           </div>
@@ -188,6 +202,3 @@ export default function Footer({ onDonateClick }: FooterProps) {
     </footer>
   );
 }
-
-
-

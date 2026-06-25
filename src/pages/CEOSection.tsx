@@ -79,7 +79,7 @@ export default function CEOSection() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.h2
-            className='text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4'
+            className='text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4'
             variants={itemVariants}
           >
             Meet Our Founder & CEO
@@ -101,23 +101,23 @@ export default function CEOSection() {
           viewport={{ once: true, margin: "-100px" }}
         >
           {/* Image/Avatar */}
-          <motion.div className='relative' variants={itemVariants}>
+          <motion.div className='relative overflow-hidden' variants={itemVariants}>
             <div className='relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-accent p-1 shadow-2xl'>
-              <div className='bg-gradient-to-br from-accent/40 to-secondary/40 backdrop-blur-md rounded-xl p-8 flex items-center justify-center h-96'>
-                <div className='w-64 h-64 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border-4 border-primary/30'>
-                  <Users className='w-32 h-32 text-primary/40' />
+              <div className='bg-gradient-to-br from-accent/40 to-secondary/40 backdrop-blur-md rounded-xl p-8 flex items-center justify-center h-72 sm:h-96'>
+                <div className='w-40 h-40 sm:w-64 sm:h-64 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border-4 border-primary/30'>
+                  <Users className='w-20 h-20 sm:w-32 sm:h-32 text-primary/40' />
                 </div>
               </div>
-            </div>
 
-            {/* Floating Badge */}
-            <motion.div
-              className='absolute -bottom-4 -right-4 bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-full font-semibold shadow-lg'
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              20+ Years Impact
-            </motion.div>
+              {/* Floating Badge - inside overflow-hidden parent */}
+              <motion.div
+                className='absolute bottom-4 right-4 bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-full font-semibold shadow-lg text-sm'
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                20+ Years Impact
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* Bio Content */}

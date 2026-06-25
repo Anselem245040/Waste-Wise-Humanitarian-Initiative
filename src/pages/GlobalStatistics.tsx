@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { BarChart3, Droplet, Globe, Timer } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -64,7 +64,7 @@ export default function GlobalStatistics() {
 
   return (
     <section className='bg-gradient-to-br from-secondary/10 via-muted to-primary/10 py-16 md:py-24'>
-      <div className='container'>
+      <div className=''>
         <motion.div
           className='grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-14'
           variants={containerVariants}
@@ -95,7 +95,7 @@ export default function GlobalStatistics() {
               return (
                 <motion.article
                   key={`${stat.value}-${stat.unit}`}
-                  className='grid gap-4 border-b border-primary/10 p-5 last:border-b-0 sm:grid-cols-[auto_1fr_minmax(0,16rem)] sm:items-center md:p-6'
+                  className='grid gap-4 border-b border-primary/10 p-5 last:border-b-0 sm:grid-cols-[auto_1fr] sm:items-center md:p-6'
                   variants={itemVariants}
                 >
                   <span

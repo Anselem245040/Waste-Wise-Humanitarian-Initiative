@@ -79,7 +79,7 @@ export default function PurposeSection() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.h2
-            className='text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4'
+            className='text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4'
             variants={itemVariants}
           >
             Our Purpose & Who We Serve
@@ -173,7 +173,7 @@ export default function PurposeSection() {
 
         {/* What We Plan to Achieve */}
         <motion.div
-          className='bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-2xl p-12 border border-primary/20'
+          className='bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-2xl p-6 sm:p-8 md:p-12 border border-primary/20'
           variants={itemVariants}
           initial='hidden'
           whileInView='visible'

@@ -81,7 +81,7 @@ export default function SocialMediaFeed() {
       id='social-feed'
       className=' bg-foreground text-background py-16 md:py-24'
     >
-      <div className='container'>
+      <div className=''>
         <motion.div
           className='grid items-start gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14'
           variants={containerVariants}

@@ -1,5 +1,13 @@
 ﻿import { motion } from "framer-motion";
-import { ArrowRight, BarChart3, Globe, Leaf, Lightbulb, Users, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  Globe,
+  Leaf,
+  Lightbulb,
+  Users,
+  Zap,
+} from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 type ImpactCard = {
@@ -79,7 +87,7 @@ export default function ImpactGrid() {
       id='impact'
       className='bg-gradient-to-br from-background via-primary/5 to-secondary/5 py-16 md:py-24'
     >
-      <div className='container'>
+      <div className=''>
         <motion.div
           className='grid gap-10 lg:grid-cols-12 lg:gap-14'
           variants={containerVariants}
@@ -87,7 +95,10 @@ export default function ImpactGrid() {
           whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.div className='lg:col-span-4 lg:sticky lg:top-28' variants={itemVariants}>
+          <motion.div
+            className='lg:col-span-4 lg:sticky lg:top-28'
+            variants={itemVariants}
+          >
             <h2 className='max-w-xl text-3xl font-display font-bold leading-tight text-foreground md:text-5xl'>
               Our Social Impact & Goals
             </h2>
@@ -180,7 +191,10 @@ export default function ImpactGrid() {
           whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.p className='text-base text-foreground/70 md:text-lg' variants={itemVariants}>
+          <motion.p
+            className='text-base text-foreground/70 md:text-lg'
+            variants={itemVariants}
+          >
             Interested in learning more about our initiatives?
           </motion.p>
           <motion.a
