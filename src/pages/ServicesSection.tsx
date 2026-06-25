@@ -163,7 +163,7 @@ export default function ServicesSection() {
                 <h3 className='mt-2 text-xl font-display font-bold text-foreground'>
                   {service.title}
                 </h3>
-                <p className='mt-3 text-sm leading-7 text-foreground/70'>
+                <p className='mt-3 text-sm leading-7 text-foreground'>
                   {service.description}
                 </p>
                 <a
