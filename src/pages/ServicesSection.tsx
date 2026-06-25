@@ -1,21 +1,20 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import {
-  Truck,
-  Users,
+  ArrowRight,
   BarChart3,
   Lightbulb,
   Shield,
-  ArrowRight,
+  Truck,
+  Users,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-/**
- * Premium Services Section Component
- *
- * Design System: Eco-Tech Premium
- * - Comprehensive service offerings with subsections
- * - Interactive cards with hover effects
- * - Smooth animations and transitions
- */
+type Service = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  details: string;
+};
 
 export default function ServicesSection() {
   const containerVariants = {
@@ -38,194 +37,169 @@ export default function ServicesSection() {
     },
   };
 
-  const services = [
+  const services: Service[] = [
     {
       icon: Users,
       title: "Community Education & Awareness",
       description:
         "Workshops, seminars, and outreach programs educating communities on waste management",
-      features: [
-        "Environmental workshops",
-        "Sanitation seminars",
-        "Community outreach",
-        "Awareness campaigns",
-      ],
-      gradient: "from-primary to-secondary",
+      details: "Community Education and Awareness",
     },
     {
       icon: Lightbulb,
       title: "School Engagement Programs",
       description:
         "Comprehensive environmental education initiatives in schools and institutions",
-      features: [
-        "School partnerships",
-        "Student workshops",
-        "Curriculum integration",
-        "Environmental clubs",
-      ],
-      gradient: "from-secondary to-accent",
+      details: "School Engagement Programs",
     },
     {
       icon: BarChart3,
       title: "Skill Acquisition Training",
       description:
         "Equipping youth with practical waste management and vocational skills",
-      features: [
-        "Technical training",
-        "Waste processing",
-        "Job placement",
-        "Certification programs",
-      ],
-      gradient: "from-accent to-primary",
+      details: "Skill Acquisition Training",
     },
     {
       icon: Truck,
       title: "Clean Community Campaigns",
       description:
         "Organized cleanup drives and environmental restoration initiatives",
-      features: [
-        "Community cleanups",
-        "Beach restoration",
-        "Waste collection",
-        "Volunteer mobilization",
-      ],
-      gradient: "from-primary to-accent",
+      details: "Clean Community Campaigns",
     },
     {
       icon: Shield,
       title: "Waste-to-Wealth Empowerment",
       description:
         "Converting waste into economic opportunities and creating sustainable livelihoods",
-      features: [
-        "Youth empowerment",
-        "Income generation",
-        "Plastic recovery",
-        "Economic opportunities",
-      ],
-      gradient: "from-accent to-secondary",
+      details: "Waste-to-Wealth Empowerment",
     },
   ];
+
+  const featuredService = services[0];
+  const supportingServices = services.slice(1);
+  const FeaturedIcon = featuredService.icon;
 
   return (
     <section
       id='services'
-      className='py-16 md:py-24 bg-gradient-to-br from-accent/5 via-secondary/5 to-primary/5'
+      className=' bg-foreground text-background py-16 md:py-24'
     >
       <div className='container'>
-        {/* Section Header */}
         <motion.div
-          className='text-center mb-16'
+          className='mb-12 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.h2
-            className='text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4'
-            variants={itemVariants}
-          >
-            Our Services
-          </motion.h2>
+          <motion.div variants={itemVariants}>
+            <h2 className='max-w-xl text-3xl font-display font-bold leading-tight text-white md:text-5xl'>
+              Our Services
+            </h2>
+          </motion.div>
           <motion.p
-            className='text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto'
+            className='max-w-2xl text-base leading-8 text-foreground/70 md:text-lg lg:justify-self-end'
             variants={itemVariants}
           >
-            Community Education and Awareness, School Engagement Programs, Skill
-            Acquisition Training, Clean Community Campaigns and Outreaches
+            Community Education and Awareness, School Engagement Programs, are
+            organized as practical programs for cleaner communities and stronger
+            livelihoods.
           </motion.p>
         </motion.div>
 
-        {/* Services Grid */}
         <motion.div
-          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+          className='grid gap-5 lg:grid-cols-3'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
-          {services.map((service, idx) => {
+          <motion.article
+            className='relative overflow-hidden rounded-lg bg-foreground p-6 text-white shadow-xl md:p-8 lg:col-span-1 lg:row-span-2'
+            variants={itemVariants}
+          >
+            <div className='absolute inset-x-0 top-0 h-1 bg-accent text-accent-foreground' />
+            <span className='flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white'>
+              <FeaturedIcon className='h-6 w-6' />
+            </span>
+            <p className='mt-8 text-sm font-semibold text-primary'>
+              {featuredService.details}
+            </p>
+            <h3 className='mt-3 text-2xl font-display font-bold leading-tight md:text-3xl'>
+              {featuredService.title}
+            </h3>
+            <p className='mt-4 text-sm leading-7 text-white/75 md:text-base'>
+              WHI uses this as the entry point for stronger sanitation habits
+              and broader community participation.
+            </p>
+            <a
+              href='/learn-more'
+              className='mt-8 inline-flex min-h-11 items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-background'
+            >
+              Learn More
+              <ArrowRight className='h-4 w-4' />
+            </a>
+          </motion.article>
+
+          {supportingServices.map((service, index) => {
             const Icon = service.icon;
             return (
-              <motion.div
-                key={idx}
-                className='group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/40 to-secondary/40 backdrop-blur-md border border-white/20 p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center flex flex-col items-center justify-center'
+              <motion.article
+                key={service.title}
+                className='group rounded-lg border border-primary/15 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg'
                 variants={itemVariants}
               >
-                {/* Gradient Background */}
-                <div
-                  className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 bg-gradient-to-br ${service.gradient}`}
-                />
-
-                {/* Icon */}
-                <motion.div
-                  className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-shadow bg-gradient-to-br ${service.gradient} mx-auto`}
-                  whileHover={{ rotate: 5, scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Icon className='w-7 h-7 text-white' />
-                </motion.div>
-
-                {/* Content */}
-                <div className='relative z-10 w-full flex flex-col items-center'>
-                  <h3 className='text-xl md:text-2xl font-display font-bold text-foreground mb-2 group-hover:text-primary transition-colors text-center'>
-                    {service.title}
-                  </h3>
-                  <p className='text-foreground/70 mb-6 text-center'>
-                    {service.description}
-                  </p>
-
-                  {/* Features List */}
-                  <ul className='flex flex-col items-center space-y-2 mb-6'>
-                    {service.features.map((feature, fidx) => (
-                      <li
-                        key={fidx}
-                        className='flex items-center justify-center gap-2 text-sm text-foreground/60'
-                      >
-                        <div className='w-1.5 h-1.5 rounded-full bg-accent' />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* CTA */}
-                  <a
-                    href='/learn-more'
-                    className='inline-flex items-center justify-center gap-2 text-accent font-semibold hover:text-primary transition-colors group/btn w-full text-center'
-                  >
-                    Learn More
-                    <ArrowRight className='w-4 h-4 group-hover/btn:translate-x-1 transition-transform' />
-                  </a>
+                <div className='flex items-start justify-between gap-4'>
+                  <span className='flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white'>
+                    <Icon className='h-5 w-5' />
+                  </span>
+                  <span className='text-xs font-semibold text-foreground/40'>
+                    0{index + 2}
+                  </span>
                 </div>
-              </motion.div>
+                <p className='mt-5 text-xs font-semibold text-secondary'>
+                  {service.details}
+                </p>
+                <h3 className='mt-2 text-xl font-display font-bold text-foreground'>
+                  {service.title}
+                </h3>
+                <p className='mt-3 text-sm leading-7 text-foreground/70'>
+                  {service.description}
+                </p>
+                <a
+                  href='/learn-more'
+                  className='mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-primary'
+                >
+                  Learn More
+                  <ArrowRight className='h-4 w-4' />
+                </a>
+              </motion.article>
             );
           })}
         </motion.div>
 
-        {/* CTA Section */}
         <motion.div
-          className='mt-16 text-center'
+          className='mt-12 grid gap-5 rounded-lg border border-secondary/20 bg-secondary/10 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.p
-            className='text-lg text-foreground/70 mb-6'
+            className='text-sm leading-7 text-foreground/70 md:text-base'
             variants={itemVariants}
           >
-            Need a customized solution? Let's talk about your waste management
-            needs.
+            Tell us about your school, organization, community, or partnership
+            goals.
           </motion.p>
-          <motion.button
-            className='px-8 py-3 rounded-lg font-semibold bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg hover:scale-105 active:scale-97 transition-all duration-300'
+          <motion.a
+            href='#contact'
+            className='inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md'
             variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
           >
-            <a href='#contact' className='text-white'>
-              Contact Us
-            </a>
-          </motion.button>
+            Contact Us
+            <ArrowRight className='h-4 w-4' />
+          </motion.a>
         </motion.div>
       </div>
     </section>

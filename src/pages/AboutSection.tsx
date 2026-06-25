@@ -1,20 +1,18 @@
-import { motion } from "framer-motion";
-import { Target, Heart, Users, Zap, Globe, Leaf } from "lucide-react";
+﻿import { motion } from "framer-motion";
+import { Globe, Heart, Leaf, Target, Users, Zap } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-/**
- * Premium About Section Component
- *
- * Design System: Eco-Tech Premium
- * - Mission, Values, and Team subsections
- * - Smooth entrance animations
- * - Glassmorphic cards with gradient accents
- */
-
-type teamMember = {
+type TeamMember = {
   name: string;
   role: string;
   bio?: string;
-  avatar?: string; // Optional avatar image URL
+  avatar?: string;
+};
+
+type Value = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
 };
 
 export default function AboutSection() {
@@ -38,7 +36,7 @@ export default function AboutSection() {
     },
   };
 
-  const values = [
+  const values: Value[] = [
     {
       icon: Target,
       title: "Integrity",
@@ -76,12 +74,12 @@ export default function AboutSection() {
     },
   ];
 
-  const teamMembers: teamMember[] = [
+  const teamMembers: TeamMember[] = [
     {
       name: "Chimdinma Zik",
       role: "CEO",
       bio: "Founder & Chief Executive Officer",
-      avatar: "/WhatsApp%20Image%202026-06-03%20at%2009.07.23.jpeg",
+      avatar: "ceo.jpeg",
     },
     {
       name: "Emelda Dike",
@@ -93,25 +91,24 @@ export default function AboutSection() {
   return (
     <section
       id='about'
-      className='py-16 md:py-24 bg-gradient-to-br from-secondary/5 via-accent/5 to-primary/5'
+      className='bg-gradient-to-br from-secondary/5 via-background to-primary/5 py-16 md:py-24'
     >
       <div className='container'>
-        {/* Section Header */}
         <motion.div
-          className='text-center mb-16'
+          className='mb-12 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.h2
-            className='text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4'
+            className='max-w-xl text-3xl font-display font-bold leading-tight text-foreground md:text-5xl'
             variants={itemVariants}
           >
             About WHI
           </motion.h2>
           <motion.p
-            className='text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto'
+            className='max-w-2xl text-base leading-8 text-foreground/70 md:text-lg lg:justify-self-end'
             variants={itemVariants}
           >
             Waste Wise Humanitarian Initiative: Educating. Empowering.
@@ -119,127 +116,124 @@ export default function AboutSection() {
           </motion.p>
         </motion.div>
 
-        {/* Vision & Mission Statements */}
         <motion.div
-          className='mb-12 grid grid-cols-1 md:grid-cols-2 gap-8'
+          className='mb-12 grid gap-5 md:grid-cols-2'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Vision */}
-          <motion.div
-            className='bg-gradient-to-r from-primary/40 to-secondary/40 rounded-2xl p-8 md:p-10 border border-primary/20 text-center flex flex-col items-center justify-center'
+          <motion.article
+            className='rounded-lg border border-primary/20 bg-white p-6 shadow-sm md:p-8'
             variants={itemVariants}
           >
-            <h3 className='text-2xl font-display font-bold mb-4 text-primary'>
+            <span className='flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary'>
+              <Target className='h-5 w-5' />
+            </span>
+            <h3 className='mt-5 text-2xl font-display font-bold text-primary'>
               Our Vision
             </h3>
-            <p className='text-lg text-foreground/80 leading-relaxed'>
+            <p className='mt-4 text-base leading-8 text-foreground/80 md:text-lg'>
               Building a sustainable, waste-free world that is clean and safe
               for all generations, in alignment with the global green
               initiative.
             </p>
-          </motion.div>
+          </motion.article>
 
-          {/* Mission */}
-          <motion.div
-            className='bg-gradient-to-r from-secondary/40 to-accent/40 rounded-2xl p-8 md:p-10 border border-secondary/20 text-center flex flex-col items-center justify-center'
+          <motion.article
+            className='rounded-lg border border-secondary/20 bg-white p-6 shadow-sm md:p-8'
             variants={itemVariants}
           >
-            <h3 className='text-2xl font-display font-bold mb-4 text-secondary'>
+            <span className='flex h-11 w-11 items-center justify-center rounded-lg bg-secondary/10 text-secondary'>
+              <Leaf className='h-5 w-5' />
+            </span>
+            <h3 className='mt-5 text-2xl font-display font-bold text-secondary'>
               Our Mission
             </h3>
-            <p className='text-lg text-foreground/80 leading-relaxed'>
+            <p className='mt-4 text-base leading-8 text-foreground/80 md:text-lg'>
               To partner with governments, organizations, schools and
               communities in waste management; to educate society on the
               importance of sanitation; and to empower youths through the
               waste-to-wealth initiative for a better tomorrow.
             </p>
-          </motion.div>
+          </motion.article>
         </motion.div>
-        {/* Core Values */}
+
         <motion.div
-          className='mb-20'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.h3
-            className='text-3xl md:text-4xl font-display font-bold mb-12 text-center'
+            className='mb-8 text-2xl font-display font-bold text-foreground md:text-4xl'
             variants={itemVariants}
           >
             Our Core Values
           </motion.h3>
-          <motion.div
-            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
-            variants={containerVariants}
-          >
-            {values.map((value, idx) => {
+          <motion.div className='grid gap-4 md:grid-cols-2 lg:grid-cols-3' variants={containerVariants}>
+            {values.map((value) => {
               const Icon = value.icon;
               return (
-                <motion.div
-                  key={idx}
-                  className='bg-gradient-to-br from-primary/40 to-accent/40 backdrop-blur-md border border-white/20 rounded-2xl p-8 hover:shadow-lg hover:scale-105 transition-all duration-300 group text-center flex flex-col items-center'
+                <motion.article
+                  key={value.title}
+                  className='rounded-lg border border-primary/15 bg-white/85 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg'
                   variants={itemVariants}
                 >
-                  <div className='w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4 group-hover:shadow-lg transition-shadow mx-auto'>
-                    <Icon className='w-6 h-6 text-white' />
-                  </div>
-                  <h4 className='text-xl font-display font-bold mb-2 text-foreground'>
+                  <span className='flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary'>
+                    <Icon className='h-5 w-5' />
+                  </span>
+                  <h4 className='mt-4 text-xl font-display font-bold text-foreground'>
                     {value.title}
                   </h4>
-                  <p className='text-foreground/70'>{value.description}</p>
-                </motion.div>
+                  <p className='mt-2 text-sm leading-7 text-foreground/70'>
+                    {value.description}
+                  </p>
+                </motion.article>
               );
             })}
           </motion.div>
         </motion.div>
 
-        {/* Team Section */}
         <motion.div
-          className='mb-20'
+          className='mt-16 border-t border-primary/15 pt-12 md:mt-20'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.h3
-            className='text-3xl md:text-4xl font-display font-bold mb-12 text-center'
+            className='mb-8 text-2xl font-display font-bold text-foreground md:text-4xl'
             variants={itemVariants}
           >
             Leadership Team
           </motion.h3>
-          <motion.div
-            className='flex flex-wrap justify-center gap-8 max-w-4xl mx-auto w-full'
-            variants={containerVariants}
-          >
-            {teamMembers.map((member, idx) => (
-              <motion.div
-                key={idx}
-                className='bg-gradient-to-br from-secondary/40 to-primary/40 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:shadow-lg hover:scale-105 transition-all duration-300 group w-full sm:w-[calc(50%-1rem)] md:w-64'
+          <motion.div className='grid gap-5 sm:grid-cols-2 lg:max-w-4xl' variants={containerVariants}>
+            {teamMembers.map((member) => (
+              <motion.article
+                key={member.name}
+                className='grid grid-cols-[5rem_1fr] gap-4 rounded-lg border border-secondary/15 bg-white p-5 shadow-sm'
                 variants={itemVariants}
               >
-                <div className='w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden flex items-center justify-center group-hover:shadow-lg transition-shadow'>
-                  {member.avatar ? (
-                    <img
-                      src={member.avatar}
-                      alt={member.name}
-                      className='w-16 h-16 object-cover rounded-full border-2 border-white/20'
-                    />
-                  ) : (
-                    <div className='w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center'>
-                      <Users className='w-8 h-8 text-white' />
-                    </div>
+                <img
+                  src={member.avatar}
+                  alt={member.name}
+                  className='h-20 w-20 rounded-lg object-cover'
+                />
+                <div className='min-w-0'>
+                  <h4 className='text-lg font-display font-bold text-foreground'>
+                    {member.name}
+                  </h4>
+                  <p className='mt-1 text-sm font-semibold text-accent'>
+                    {member.role}
+                  </p>
+                  {member.bio && (
+                    <p className='mt-2 text-sm leading-6 text-foreground/70'>
+                      {member.bio}
+                    </p>
                   )}
                 </div>
-                <h4 className='text-lg font-display font-bold text-foreground mb-1'>
-                  {member.name}
-                </h4>
-                <p className='text-accent font-semibold mb-2'>{member.role}</p>
-                <p className='text-sm text-foreground/70'>{member.bio}</p>
-              </motion.div>
+              </motion.article>
             ))}
           </motion.div>
         </motion.div>

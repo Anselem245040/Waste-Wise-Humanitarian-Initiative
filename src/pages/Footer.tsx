@@ -1,24 +1,11 @@
-import { Mail, Phone, MapPin, Heart } from "lucide-react";
+﻿import { ArrowRight, ExternalLink, Heart, Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "framer-motion";
-
-/**
- * Premium Footer Component
- *
- * Design System: Eco-Tech Premium
- * - Dark background with premium gradient
- * - Project showcase gallery
- * - Impact metrics
- * - Multiple CTA sections
- * - Responsive grid layout
- */
 
 interface FooterProps {
   onDonateClick?: () => void;
 }
 
 export default function Footer({ onDonateClick }: FooterProps) {
-  // Project gallery items (using placeholder images from project)
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -39,183 +26,168 @@ export default function Footer({ onDonateClick }: FooterProps) {
     },
   };
 
-  return (
-    <footer className='bg-gradient-to-b from-foreground to-foreground/95 text-background border-t border-border/10'>
-      {/* Main Footer Content */}
-      <div className='container py-16 md:py-20'>
-        {/* Projects Showcase */}
+  const quickLinks = [
+    { label: "About", href: "#about" },
+    { label: "Impact", href: "#impact" },
+    { label: "Services", href: "#services" },
+    { label: "Contact", href: "#contact" },
+  ];
 
-        {/* Content Grid */}
+  const resources = [
+    { label: "Learn More", href: "/learn-more" },
+    { label: "Explore All", href: "/explore-all" },
+    { label: "Gallery", href: "/full-gallery" },
+  ];
+
+  return (
+    <footer className='border-t border-white/10 bg-foreground text-background'>
+      <div className='container py-14 md:py-20'>
         <motion.div
-          className='grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 text-center'
+          className='mb-12 grid gap-8 rounded-lg border border-white/10 bg-white/5 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Brand Column */}
-          <motion.div
-            className='space-y-4 flex flex-col items-center'
+          <motion.div variants={itemVariants}>
+            <p className='text-sm font-semibold text-primary'>
+              Make a Difference
+            </p>
+            <h2 className='mt-3 max-w-2xl text-2xl font-display font-bold leading-tight text-white md:text-4xl'>
+              Support our mission to transform waste management across Nigeria and help turn cleaner communities into lasting opportunity
+            </h2>
+          </motion.div>
+          <motion.button
+            onClick={onDonateClick}
+            className='inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md'
             variants={itemVariants}
           >
-            <div className='flex items-center justify-center gap-2'>
-              <div className='w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow relative'>
-                {/* WHI Shield Logo */}
-                <img src='logo.jpeg' alt='logo' />
-              </div>
-            </div>
-            <h3 className='font-display font-bold text-lg text-white text-center'>
-              WHI
-            </h3>
-            <p className='text-sm text-background/70 leading-relaxed text-center'>
-              Waste Wise Humanitarian Initiative: Educating. Empowering.
-              Transforming. Building a sustainable, waste-free world through
-              community engagement and youth empowerment.
+            <Heart className='h-4 w-4' />
+            Donate Now
+          </motion.button>
+        </motion.div>
+
+        <motion.div
+          className='grid gap-10 md:grid-cols-[1.2fr_0.7fr_0.7fr_1fr]'
+          variants={containerVariants}
+          initial='hidden'
+          whileInView='visible'
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <motion.div variants={itemVariants}>
+            <a href='/' className='inline-flex items-center gap-3'>
+              <span className='flex h-11 w-11 overflow-hidden rounded-lg border border-white/15 bg-white'>
+                <img
+                  src='logo.jpeg'
+                  alt='Waste Wise Humanitarian Initiative logo'
+                  className='h-full w-full object-cover'
+                />
+              </span>
+              <span>
+                <span className='block font-display text-lg font-bold text-white'>
+                  WHI
+                </span>
+                <span className='block text-xs font-medium text-background/60'>
+                  Waste Wise Humanitarian Initiative
+                </span>
+              </span>
+            </a>
+            <p className='mt-5 max-w-sm text-sm leading-7 text-background/70'>
+              Educating, empowering, and transforming communities through
+              sustainable waste management and youth-focused environmental
+              programs.
             </p>
-            {/* Social Links */}
-            <div className='flex justify-center gap-3 pt-2'>
-              {["twitter", "facebook", "instagram", "linkedin"].map(
-                (social) => (
-                  <a
-                    key={social}
-                    href='#'
-                    className='w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors'
-                    aria-label={social}
-                  >
-                    <span className='text-xs font-bold'>{social[0]}</span>
-                  </a>
-                ),
-              )}
-            </div>
+            <a
+              href='https://www.linkedin.com/company/waste-wise-humanitarian-initiative-whi/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-background'
+            >
+              LinkedIn
+              <ExternalLink className='h-4 w-4' />
+            </a>
           </motion.div>
 
-          {/* Quick Links */}
-          <motion.div
-            className='space-y-4 flex flex-col items-center'
-            variants={itemVariants}
-          >
-            <h4 className='font-display font-bold text-sm text-white text-center w-full'>
+          <motion.div variants={itemVariants}>
+            <h3 className='font-display text-sm font-bold text-white'>
               Quick Links
-            </h4>
-            <ul className='space-y-2 text-sm text-center w-full'>
-              {["About Us", "Our Impact", "Blog", "Careers"].map((link) => (
-                <li key={link}>
+            </h3>
+            <ul className='mt-4 space-y-3 text-sm'>
+              {quickLinks.map((link) => (
+                <li key={link.label}>
                   <a
-                    href='#'
-                    className='text-background/70 hover:text-background transition-colors'
+                    href={link.href}
+                    className='inline-flex items-center gap-2 text-background/70 transition-colors hover:text-background'
                   >
-                    {link}
+                    <ArrowRight className='h-3.5 w-3.5 text-primary' />
+                    {link.label}
                   </a>
                 </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Resources */}
-          <motion.div
-            className='space-y-4 flex flex-col items-center'
-            variants={itemVariants}
-          >
-            <h4 className='font-display font-bold text-sm text-white text-center w-full'>
+          <motion.div variants={itemVariants}>
+            <h3 className='font-display text-sm font-bold text-white'>
               Resources
-            </h4>
-            <ul className='space-y-2 text-sm text-center w-full'>
-              {["Documentation", "FAQ", "Support", "Privacy Policy"].map(
-                (link) => (
-                  <li key={link}>
-                    <a
-                      href='#'
-                      className='text-background/70 hover:text-background transition-colors'
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ),
-              )}
+            </h3>
+            <ul className='mt-4 space-y-3 text-sm'>
+              {resources.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className='inline-flex items-center gap-2 text-background/70 transition-colors hover:text-background'
+                  >
+                    <ArrowRight className='h-3.5 w-3.5 text-primary' />
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
-          {/* Contact */}
-          <motion.div
-            className='space-y-4 flex flex-col items-center'
-            variants={itemVariants}
-          >
-            <h4 className='font-display font-bold text-sm text-white text-center w-full'>
+          <motion.div variants={itemVariants}>
+            <h3 className='font-display text-sm font-bold text-white'>
               Contact
-            </h4>
-            <div className='space-y-3 text-sm text-center w-full flex flex-col items-center'>
-              <div className='flex items-center justify-center gap-2 w-full'>
-                <Mail className='w-4 h-4 flex-shrink-0 text-accent' />
-                <a
-                  href='mailto:wastewisehumanitarianinitiativ@gmail.com'
-                  className='text-background/70 hover:text-background transition-colors break-all text-center'
-                >
-                  wastewisehumanitarianinitiativ@gmail.com
-                </a>
-              </div>
-              <div className='flex items-center justify-center gap-2 w-full'>
-                <Phone className='w-4 h-4 flex-shrink-0 text-accent' />
-                <a
-                  href='tel:+2348159713721'
-                  className='text-background/70 hover:text-background transition-colors text-center'
-                >
-                  +234 815 971 3721
-                </a>
-              </div>
-              <div className='flex items-center justify-center gap-2 w-full'>
-                <MapPin className='w-4 h-4 flex-shrink-0 text-accent' />
-                <p className='text-background/70 text-center'>Enugu, Nigeria</p>
-              </div>
+            </h3>
+            <div className='mt-4 space-y-4 text-sm text-background/70'>
+              <a
+                href='mailto:wastewisehumanitarianinitiav@gmail.com'
+                className='flex items-start gap-3 break-all transition-colors hover:text-background'
+              >
+                <Mail className='mt-0.5 h-4 w-4 flex-shrink-0 text-primary' />
+                wastewisehumanitarianinitiav@gmail.com
+              </a>
+              <a
+                href='tel:+2348159713721'
+                className='flex items-center gap-3 transition-colors hover:text-background'
+              >
+                <Phone className='h-4 w-4 flex-shrink-0 text-primary' />
+                +234 815 971 3721
+              </a>
+              <p className='flex items-center gap-3'>
+                <MapPin className='h-4 w-4 flex-shrink-0 text-primary' />
+                Enugu, Nigeria
+              </p>
             </div>
           </motion.div>
         </motion.div>
 
-        {/* Divider */}
-        <div className='border-t border-background/10 pt-8'>
-          {/* Donation CTA */}
-          <motion.div
-            variants={itemVariants}
-            className='bg-gradient-to-r from-accent/20 to-secondary/20 rounded-xl p-6 mb-8 text-center border border-accent/30'
-          >
-            <div className='flex items-center justify-center gap-2 mb-3'>
-              <Heart className='w-5 h-5 text-accent fill-accent' />
-              <h4 className='font-display font-bold text-white'>
-                Make a Difference
-              </h4>
-            </div>
-            <p className='text-sm text-background/80 mb-4'>
-              Support our mission to transform waste management across Nigeria
-            </p>
-            <button
-              onClick={onDonateClick}
-              className='px-6 py-2 rounded-lg font-semibold bg-accent text-accent-foreground hover:shadow-lg hover:scale-105 transition-all duration-300'
-            >
-              Donate Now
-            </button>
-          </motion.div>
-
-          {/* Copyright */}
-          <motion.div
-            variants={itemVariants}
-            className='flex flex-col items-center justify-center gap-4 text-xs text-background/60'
-          >
-            <p className='text-center'>
-              © 2026 Waste Wise Humanitarian Initiative. All rights reserved.
-            </p>
-            <div className='flex justify-center gap-6'>
-              <a href='#' className='hover:text-background transition-colors'>
-                Privacy Policy
-              </a>
-              <a href='#' className='hover:text-background transition-colors'>
-                Terms of Service
-              </a>
-              <a href='#' className='hover:text-background transition-colors'>
-                Cookies
-              </a>
-            </div>
-          </motion.div>
+        <div className='mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-background/50 md:flex-row md:items-center md:justify-between'>
+          <p>© 2026 Waste Wise Humanitarian Initiative. All rights reserved.</p>
+          <div className='flex gap-5'>
+            <a href='#contact' className='transition-colors hover:text-background'>
+              Contact
+            </a>
+            <a href='/learn-more' className='transition-colors hover:text-background'>
+              Learn More
+            </a>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
+
+
+

@@ -1,103 +1,14 @@
-import { motion } from "framer-motion";
-import { Users, Zap, Globe, Leaf, BarChart3, Lightbulb } from "lucide-react";
-import type { ReactNode } from "react";
+﻿import { motion } from "framer-motion";
+import { ArrowRight, BarChart3, Globe, Leaf, Lightbulb, Users, Zap } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-/**
- * Premium Impact Grid Component - Bento Style
- *
- * Design System: Eco-Tech Premium
- * - Bento grid layout with varied card sizes
- * - Gradient borders (primary, secondary, accent colors)
- * - Smooth scale-up hover animations
- * - Lucide React icons with gradient backgrounds
- * - AI-generated placeholder text (editable)
- */
-
-interface ImpactCardProps {
-  icon: ReactNode;
+type ImpactCard = {
+  icon: LucideIcon;
   title: string;
   description: string;
-  gradient: string;
-  size?: "small" | "large";
-  accentColor: string;
-}
-
-function ImpactCard({
-  icon,
-  title,
-  description,
-  gradient,
-  size = "small",
-  accentColor,
-}: ImpactCardProps) {
-  return (
-    <motion.div
-      className={`relative group overflow-hidden rounded-2xl backdrop-blur-md bg-gradient-to-br from-primary/40 to-accent/40 border-2 transition-all duration-300 hover:shadow-2xl ${
-        size === "large" ? "md:col-span-2 md:row-span-2" : ""
-      }`}
-      style={{
-        borderImage: `linear-gradient(135deg, var(--color-${gradient}), var(--color-${accentColor})) 1`,
-      }}
-      whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.3 }}
-    >
-      {/* Gradient Background Overlay */}
-      <div
-        className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-gradient-to-br from-${gradient} to-${accentColor}`}
-      />
-
-      {/* Content */}
-      <div
-        className={`relative z-10 p-6 md:p-8 h-full flex flex-col items-center justify-center text-center`}
-      >
-        {/* Icon */}
-        <motion.div
-          className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-shadow mx-auto`}
-          style={{
-            background: `linear-gradient(135deg, var(--color-${gradient}), var(--color-${accentColor}))`,
-          }}
-          whileHover={{ rotate: 5, scale: 1.1 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className='text-white'>{icon}</div>
-        </motion.div>
-
-        {/* Title */}
-        <h3 className='text-xl md:text-2xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors'>
-          {title}
-        </h3>
-
-        {/* Description */}
-        <p className='text-sm md:text-base text-foreground/70 leading-relaxed group-hover:text-foreground/80 transition-colors mb-4'>
-          {description}
-        </p>
-
-        {/* Floating Badge */}
-        <a
-          href='/learn-more'
-          className='inline-flex items-center gap-2 text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity justify-center'
-        >
-          <span>Learn More</span>
-          <span>→</span>
-        </a>
-      </div>
-
-      {/* Border Glow Effect */}
-      <motion.div
-        className='absolute inset-0 rounded-2xl pointer-events-none'
-        style={{
-          border: `2px solid transparent`,
-          backgroundImage: `linear-gradient(white, white), linear-gradient(135deg, var(--color-${gradient}), var(--color-${accentColor}))`,
-          backgroundOrigin: "border-box",
-          backgroundClip: "padding-box, border-box",
-        }}
-        initial={{ opacity: 0 }}
-        whileHover={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
-      />
-    </motion.div>
-  );
-}
+  tone: string;
+  iconClass: string;
+};
 
 export default function ImpactGrid() {
   const containerVariants = {
@@ -120,138 +31,165 @@ export default function ImpactGrid() {
     },
   };
 
-  const impactCards = [
+  const impactCards: ImpactCard[] = [
     {
-      icon: <Users className='w-7 h-7' />,
+      icon: Users,
       title: "Communities Reached",
       description:
         "Reach communities, creating grassroots environmental awareness and engagement through our global initiatives.",
-      gradient: "primary",
-      accentColor: "secondary",
-      size: "small",
+      tone: "border-primary/20 bg-white",
+      iconClass: "bg-primary text-white",
     },
     {
-      icon: <Zap className='w-7 h-7' />,
+      icon: Zap,
       title: "Youth Empowered",
       description:
         "Train and employ 200+ youth through our waste-to-wealth initiative, creating sustainable jobs and economic opportunities while protecting the environment.",
-      gradient: "accent",
-      accentColor: "secondary",
-      size: "small",
+      tone: "border-secondary/20 bg-secondary/10",
+      iconClass: "bg-secondary text-white",
     },
     {
-      icon: <Globe className='w-7 h-7' />,
+      icon: Globe,
       title: "School Partnerships",
       description:
         "Partner with 10+ schools for comprehensive environmental education, equipping students with waste management knowledge and sustainable practices.",
-      gradient: "secondary",
-      accentColor: "primary",
-      size: "small",
+      tone: "border-primary/20 bg-primary/10",
+      iconClass: "bg-primary text-white",
     },
     {
-      icon: <Leaf className='w-7 h-7' />,
-      title: "Nylon and Plastic Crisis",
-      description:
-        "Nylon and Plastic pollution cause diseases, disability, and premature death at every stage of its lifecycle. Together we clean our environment to promote healthy lifestyle.",
-      gradient: "primary",
-      accentColor: "accent",
-      size: "large",
-    },
-    {
-      icon: <BarChart3 className='w-7 h-7' />,
+      icon: BarChart3,
       title: "Institutional Partnerships",
       description:
         "Establish 5+ partnerships with governments and organizations to drive policy change and implement waste management solutions across Nigeria.",
-      gradient: "accent",
-      accentColor: "primary",
-      size: "small",
+      tone: "border-secondary/20 bg-white",
+      iconClass: "bg-secondary text-white",
     },
     {
-      icon: <Lightbulb className='w-7 h-7' />,
+      icon: Lightbulb,
       title: "Public Awareness",
       description:
         "Reach 1,000+ people through awareness campaigns and social media, spreading knowledge about sustainable waste management and environmental responsibility.",
-      gradient: "secondary",
-      accentColor: "accent",
-      size: "small",
+      tone: "border-primary/20 bg-white",
+      iconClass: "bg-primary text-white",
     },
   ];
 
   return (
     <section
       id='impact'
-      className='py-16 md:py-24 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5'
+      className='bg-gradient-to-br from-background via-primary/5 to-secondary/5 py-16 md:py-24'
     >
       <div className='container'>
-        {/* Section Header */}
         <motion.div
-          className='text-center mb-16'
+          className='grid gap-10 lg:grid-cols-12 lg:gap-14'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.h2
-            className='text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4'
-            variants={itemVariants}
-          >
-            Our Social Impact & Goals
-          </motion.h2>
-          <motion.p
-            className='text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto'
-            variants={itemVariants}
-          >
-            Building sustainable change through community engagement, education,
-            and economic empowerment
-          </motion.p>
-          <motion.p>
-            Comprehensive waste management solutions built on innovation,
-            community engagement, and sustainable practices
-          </motion.p>
+          <motion.div className='lg:col-span-4 lg:sticky lg:top-28' variants={itemVariants}>
+            <h2 className='max-w-xl text-3xl font-display font-bold leading-tight text-foreground md:text-5xl'>
+              Our Social Impact & Goals
+            </h2>
+            <p className='mt-5 max-w-xl text-base leading-8 text-foreground/70 md:text-lg'>
+              Building sustainable change through community engagement,
+              education, and economic empowerment
+            </p>
+            <p className='mt-4 max-w-xl text-sm leading-7 text-foreground/60 md:text-base'>
+              Comprehensive waste management solutions built on innovation,
+              community engagement, and sustainable practices
+            </p>
+            <a
+              href='/explore-all'
+              className='mt-8 inline-flex min-h-11 items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-accent px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md'
+            >
+              Explore All Initiatives
+              <ArrowRight className='h-4 w-4' />
+            </a>
+          </motion.div>
+
+          <motion.div className='lg:col-span-8' variants={containerVariants}>
+            <div className='grid gap-4 sm:grid-cols-2'>
+              <motion.article
+                className='relative overflow-hidden rounded-lg bg-foreground p-6 text-background shadow-xl sm:col-span-2 md:p-8'
+                variants={itemVariants}
+              >
+                <div className='absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary to-accent' />
+                <div className='grid gap-6 md:grid-cols-[1fr_auto] md:items-end'>
+                  <div>
+                    <span className='inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white'>
+                      <Leaf className='h-6 w-6' />
+                    </span>
+                    <h3 className='mt-5 max-w-2xl text-2xl font-display font-bold leading-tight text-white md:text-4xl'>
+                      Nylon and Plastic Crisis
+                    </h3>
+                    <p className='mt-4 max-w-2xl text-sm leading-7 text-background/75 md:text-base'>
+                      Nylon and Plastic pollution cause diseases, disability,
+                      and premature death at every stage of its lifecycle.
+                      Together we clean our environment to promote healthy
+                      lifestyle.
+                    </p>
+                  </div>
+                  <a
+                    href='/learn-more'
+                    className='inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-background'
+                  >
+                    Learn More
+                    <ArrowRight className='h-4 w-4' />
+                  </a>
+                </div>
+              </motion.article>
+
+              {impactCards.map((card) => {
+                const Icon = card.icon;
+                return (
+                  <motion.article
+                    key={card.title}
+                    className={`rounded-lg border p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${card.tone}`}
+                    variants={itemVariants}
+                  >
+                    <span
+                      className={`flex h-11 w-11 items-center justify-center rounded-lg ${card.iconClass}`}
+                    >
+                      <Icon className='h-5 w-5' />
+                    </span>
+                    <h3 className='mt-5 text-xl font-display font-bold text-foreground'>
+                      {card.title}
+                    </h3>
+                    <p className='mt-3 text-sm leading-7 text-foreground/70'>
+                      {card.description}
+                    </p>
+                    <a
+                      href='/learn-more'
+                      className='mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-secondary'
+                    >
+                      Learn More
+                      <ArrowRight className='h-4 w-4' />
+                    </a>
+                  </motion.article>
+                );
+              })}
+            </div>
+          </motion.div>
         </motion.div>
 
-        {/* Bento Grid */}
         <motion.div
-          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-max'
+          className='mt-12 grid gap-5 rounded-lg border border-primary/20 bg-white p-6 shadow-sm md:grid-cols-[1fr_auto] md:items-center'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
-          {impactCards.map((card, idx) => (
-            <motion.div key={idx} variants={itemVariants}>
-              <ImpactCard
-                icon={card.icon}
-                title={card.title}
-                description={card.description}
-                gradient={card.gradient}
-                accentColor={card.accentColor}
-                size={card.size as "small" | "large"}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* CTA Section */}
-        <motion.div
-          className='mt-16 text-center'
-          variants={containerVariants}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <motion.p
-            className='text-lg text-foreground/70 mb-6'
-            variants={itemVariants}
-          >
+          <motion.p className='text-base text-foreground/70 md:text-lg' variants={itemVariants}>
             Interested in learning more about our initiatives?
           </motion.p>
-          <a
+          <motion.a
             href='/explore-all'
-            className='px-8 py-3 rounded-lg font-semibold bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg hover:scale-105 active:scale-97 transition-all duration-300'
+            className='inline-flex min-h-11 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md'
+            variants={itemVariants}
           >
             Explore All Initiatives
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </section>

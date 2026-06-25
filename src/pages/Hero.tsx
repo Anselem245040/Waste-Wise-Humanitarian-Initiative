@@ -1,23 +1,11 @@
-import { ArrowRight, Leaf } from "lucide-react";
+﻿import { ArrowRight, Leaf } from "lucide-react";
 import { motion } from "framer-motion";
-
-/**
- * Premium Hero Component - Waste Wise Humanitarian Initiative
- *
- * Design System: Eco-Tech Premium
- * - Full background image with text overlay
- * - Layout: Centered text on image
- * - Typography: Bold headings with white text
- * - Motion: Staggered entrance animations
- * - Colors: Deep green primary, lime accent, teal secondary
- */
 
 interface HeroProps {
   onDonateClick?: () => void;
 }
 
 export default function Hero({ onDonateClick }: HeroProps) {
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -40,7 +28,7 @@ export default function Hero({ onDonateClick }: HeroProps) {
 
   return (
     <section
-      className='relative overflow-hidden min-h-screen md:min-h-[90vh] flex items-center justify-center'
+      className='relative isolate flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-foreground md:min-h-[calc(100vh-5rem)]'
       style={{
         backgroundImage: `url('Hero.jpeg')`,
         backgroundSize: "cover",
@@ -48,43 +36,37 @@ export default function Hero({ onDonateClick }: HeroProps) {
         backgroundAttachment: "fixed",
       }}
     >
-      {/* Dark Overlay */}
-      <div className='absolute inset-0 bg-black/10 backdrop-blur-sm' />
+      <div className='absolute inset-0 bg-black/50' />
+      <div className='absolute inset-0 bg-gradient-to-r from-foreground/75 via-foreground/40 to-primary/10' />
+      <div className='absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent' />
 
-      {/* Gradient Overlay for depth */}
-      <div className='absolute inset-0 bg-gradient-to-b from-primary/15 via-transparent to-secondary/13' />
-
-      {/* Content */}
       <div className='container relative z-10'>
         <motion.div
-          className='flex flex-col items-center justify-center text-center space-y-8'
+          className='max-w-4xl py-20 md:py-28 lg:py-32'
           variants={containerVariants}
           initial='hidden'
           animate='visible'
         >
-          {/* Badge */}
           <motion.div
-            className='inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full'
+            className='mb-6 inline-flex max-w-full items-center gap-2 rounded-full border border-white/25 bg-white/15 px-4 py-2 text-white shadow-sm backdrop-blur-md'
             variants={itemVariants}
           >
-            <Leaf className='w-4 h-4 text-accent' />
-            <span className='text-sm font-semibold text-white'>
+            <Leaf className='h-4 w-4 flex-shrink-0 text-accent' />
+            <span className='text-sm font-semibold'>
               Educating. Empowering. Transforming.
             </span>
           </motion.div>
 
-          {/* Main Headline */}
           <motion.h1
-            className='text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold leading-tight text-white max-w-5xl'
+            className='max-w-4xl text-4xl font-display font-bold leading-[1.05] text-white sm:text-5xl md:text-6xl lg:text-7xl'
             variants={itemVariants}
           >
             Pollution to <br />
             <span className='text-accent'>Possibility</span>
           </motion.h1>
 
-          {/* Subtitle */}
           <motion.p
-            className='text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl'
+            className='mt-6 max-w-3xl text-base leading-8 text-white/90 sm:text-lg md:text-xl'
             variants={itemVariants}
           >
             Thousands of our youths lack access to practical skills, livelihood
@@ -92,28 +74,25 @@ export default function Hero({ onDonateClick }: HeroProps) {
             become productive contributors to society.
           </motion.p>
 
-          {/* CTA Buttons */}
           <motion.div
-            className='flex flex-col sm:flex-row gap-4 pt-4'
+            className='mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row'
             variants={itemVariants}
           >
             <a
               href='#contact'
               onClick={onDonateClick}
-              className='px-8 py-4 rounded-lg font-semibold bg-gradient-to-r from-accent to-secondary text-white hover:shadow-2xl hover:scale-105 active:scale-97 transition-all duration-300 flex items-center justify-center gap-2 text-base'
+              className='inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-accent to-secondary px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl'
             >
               Contact us
-              <ArrowRight className='w-5 h-5' />
+              <ArrowRight className='h-5 w-5' />
             </a>
             <a
               href='/learn-more'
-              className='px-8 py-4 rounded-lg font-semibold bg-white/20 backdrop-blur-md border-2 border-white text-white hover:bg-white/30 active:bg-white/40 transition-all duration-300 text-base'
+              className='inline-flex min-h-12 items-center justify-center rounded-lg border border-white/70 bg-white/20 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/30'
             >
               Learn More
             </a>
           </motion.div>
-
-          {/* Trust Badges */}
         </motion.div>
       </div>
     </section>

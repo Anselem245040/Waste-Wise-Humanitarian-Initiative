@@ -1,14 +1,14 @@
-import { motion } from "framer-motion";
-import { BarChart3, Droplet, Globe, Zap } from "lucide-react";
+﻿import { motion } from "framer-motion";
+import { BarChart3, Droplet, Globe, Timer } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-/**
- * Premium Global Statistics Component
- *
- * Design System: Eco-Tech Premium
- * - Displays critical global plastic pollution statistics
- * - Icon-based visual hierarchy
- * - Smooth animations and transitions
- */
+type Statistic = {
+  icon: LucideIcon;
+  value: string;
+  unit: string;
+  description: string;
+  tone: string;
+};
 
 export default function GlobalStatistics() {
   const containerVariants = {
@@ -31,127 +31,93 @@ export default function GlobalStatistics() {
     },
   };
 
-  const statistics = [
+  const statistics: Statistic[] = [
     {
       icon: BarChart3,
       value: "432+",
       unit: "Million Tonnes",
       description: "of plastic waste generated annually",
-      color: "from-primary to-secondary",
+      tone: "bg-primary text-white",
     },
     {
-      icon: Zap,
+      icon: Timer,
       value: "1,000+",
       unit: "Years",
       description: "for plastic to decompose naturally",
-      color: "from-secondary to-accent",
+      tone: "bg-secondary text-white",
     },
     {
       icon: Droplet,
       value: "199+",
       unit: "Million Tonnes",
       description: "of plastic litter our Ocean damaging the ecosystem",
-      color: "from-accent to-primary",
+      tone: "bg-primary text-white",
     },
     {
       icon: Globe,
       value: "1M+",
       unit: "Sea Creatures",
       description: "killed by plastic every year",
-      color: "from-primary to-accent",
+      tone: "bg-secondary text-white",
     },
   ];
 
   return (
-    <section className='py-16 md:py-24 bg-gradient-to-br from-secondary/5 via-primary/5 to-accent/5'>
+    <section className='bg-gradient-to-br from-secondary/10 via-muted to-primary/10 py-16 md:py-24'>
       <div className='container'>
-        {/* Section Header */}
         <motion.div
-          className='text-center mb-16'
+          className='grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-14'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.h2
-            className='text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4'
-            variants={itemVariants}
-          >
-            Global Statistics
-          </motion.h2>
-          <motion.p
-            className='text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto'
-            variants={itemVariants}
-          >
-            Understanding the scale of the plastic crisis we face
-          </motion.p>
-        </motion.div>
+          <motion.div variants={itemVariants}>
+            <h2 className='max-w-xl text-3xl font-display font-bold leading-tight text-foreground md:text-5xl'>
+              Global Statistics
+            </h2>
+            <p className='mt-5 max-w-xl text-base leading-8 text-foreground/70 md:text-lg'>
+              Understanding the scale of the plastic crisis we face
+            </p>
+            <p className='mt-4 max-w-xl text-sm leading-7 text-foreground/60 md:text-base'>
+              These numbers frame the urgency behind WHI's education, cleanup,
+              and waste-to-wealth programs. Cleaner habits compound when people
+              understand the scale of the problem.
+            </p>
+          </motion.div>
 
-        {/* Statistics Grid */}
-        <motion.div
-          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'
-          variants={containerVariants}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {statistics.map((stat, idx) => {
-            const Icon = stat.icon;
-            return (
-              <motion.div
-                key={idx}
-                className='relative group overflow-hidden rounded-2xl backdrop-blur-md bg-white/30 border-2 border-white/20 p-8 hover:shadow-2xl transition-all duration-300'
-                variants={itemVariants}
-                whileHover={{ scale: 1.05, y: -5 }}
-              >
-                {/* Gradient Background Overlay */}
-                <div
-                  className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-gradient-to-br ${stat.color}`}
-                />
-
-                {/* Content */}
-                <div className='relative z-10 flex flex-col items-center text-center space-y-4'>
-                  {/* Icon */}
-                  <motion.div
-                    className={`w-16 h-16 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow bg-gradient-to-br ${stat.color}`}
-                    whileHover={{ rotate: 5, scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
+          <motion.div
+            className='overflow-hidden rounded-lg border border-primary/15 bg-white shadow-sm'
+            variants={containerVariants}
+          >
+            {statistics.map((stat) => {
+              const Icon = stat.icon;
+              return (
+                <motion.article
+                  key={`${stat.value}-${stat.unit}`}
+                  className='grid gap-4 border-b border-primary/10 p-5 last:border-b-0 sm:grid-cols-[auto_1fr_minmax(0,16rem)] sm:items-center md:p-6'
+                  variants={itemVariants}
+                >
+                  <span
+                    className={`flex h-12 w-12 items-center justify-center rounded-lg ${stat.tone}`}
                   >
-                    <Icon className='w-8 h-8 text-white' />
-                  </motion.div>
-
-                  {/* Value */}
-                  <h3 className='text-3xl md:text-4xl font-display font-bold text-foreground'>
-                    {stat.value}
-                  </h3>
-
-                  {/* Unit */}
-                  <p className='text-sm font-semibold text-primary'>
-                    {stat.unit}
-                  </p>
-
-                  {/* Description */}
-                  <p className='text-sm text-foreground/70 leading-relaxed'>
+                    <Icon className='h-6 w-6' />
+                  </span>
+                  <div>
+                    <p className='font-display text-3xl font-bold text-foreground md:text-4xl'>
+                      {stat.value}
+                    </p>
+                    <p className='mt-1 text-sm font-semibold text-primary'>
+                      {stat.unit}
+                    </p>
+                  </div>
+                  <p className='max-w-xs text-sm leading-7 text-foreground/70 sm:text-right'>
                     {stat.description}
                   </p>
-                </div>
-
-                {/* Border Glow Effect */}
-                <motion.div
-                  className='absolute inset-0 rounded-2xl pointer-events-none'
-                  style={{
-                    border: `2px solid transparent`,
-                    backgroundImage: `linear-gradient(white, white), linear-gradient(135deg, var(--color-primary), var(--color-accent))`,
-                    backgroundOrigin: "border-box",
-                    backgroundClip: "padding-box, border-box",
-                  }}
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.div>
-            );
-          })}
+                </motion.article>
+              );
+            })}
+          </motion.div>
         </motion.div>
       </div>
     </section>

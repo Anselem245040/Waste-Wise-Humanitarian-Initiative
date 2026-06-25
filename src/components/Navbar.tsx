@@ -1,19 +1,7 @@
-import { useState, useEffect } from "react";
+﻿import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Menu } from "lucide-react";
+import { Heart, Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { Link } from "wouter";
-
-/**
- * Premium Navbar Component with Dropdown Menus
- *
- * Design System: Eco-Tech Premium
- * - Glassmorphism effect with backdrop blur
- * - Dropdown menus for desktop and mobile
- * - Smooth hover states and animations
- * - Mobile hamburger menu with slide-out animation
- * - Prominent Donate CTA button
- * - Sticky positioning with shadow on scroll
- */
 
 interface NavbarProps {
   onDonateClick: () => void;
@@ -28,140 +16,111 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Handle scroll effect
-  const handleScroll = () => {
-    setIsScrolled(window.scrollY > 10);
-  };
-
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
-  // Listen for scroll events
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const navLinks: NavLink[] = [
-    {
-      label: "About",
-      href: "#about",
-    },
-    {
-      label: "Services",
-      href: "#services",
-    },
-    {
-      label: "Impact",
-      href: "#impact-details",
-    },
-    {
-      label: "Contact",
-      href: "#contact",
-    },
+    { label: "About", href: "#about" },
+    { label: "Services", href: "#services" },
+    { label: "Impact", href: "#impact" },
+    { label: "Contact", href: "#contact" },
   ];
 
-  // Mobile menu animation variants
   const menuVariants = {
-    hidden: { opacity: 0, x: -300 },
+    hidden: { opacity: 0, y: -16 },
     visible: {
       opacity: 1,
-      x: 0,
-      transition: { duration: 0.3 },
+      y: 0,
+      transition: { duration: 0.25 },
     },
     exit: {
       opacity: 0,
-      x: -300,
-      transition: { duration: 0.2 },
+      y: -16,
+      transition: { duration: 0.18 },
     },
   };
 
   const linkVariants = {
-    hidden: { opacity: 0, x: -20 },
+    hidden: { opacity: 0, y: -8 },
     visible: (i: number) => ({
       opacity: 1,
-      x: 0,
-      transition: { delay: i * 0.05, duration: 0.3 },
+      y: 0,
+      transition: { delay: i * 0.04, duration: 0.25 },
     }),
   };
 
   return (
     <>
-      {/* Desktop & Mobile Navbar */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/70 backdrop-blur-xl border-b border-border/40 shadow-lg"
-            : "bg-white/50 backdrop-blur-md border-b border-border/20"
+            ? "border-b border-border/70 bg-background/90 shadow-sm backdrop-blur-xl"
+            : "border-b border-white/30 bg-background/75 backdrop-blur-lg"
         }`}
       >
-        <div className='container flex items-center justify-between py-4 md:py-5'>
-          {/* Logo & Brand - WHI */}
+        <div className='container flex h-16 items-center justify-between gap-4 md:h-20'>
           <Link href='/'>
-            <a className='flex items-center gap-3 group cursor-pointer transition-transform duration-300 hover:scale-105'>
-              <div className='w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow relative'>
-                {/* WHI Shield Logo */}
-                <img src='logo.jpeg' alt='logo' />
-              </div>
-              <div className='flex flex-col'>
-                <h1 className='font-display font-bold text-sm leading-tight text-foreground'>
+            <a className='group flex min-w-0 items-center gap-3'>
+              <span className='flex h-11 w-11 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg border border-primary/20 bg-white shadow-sm transition-shadow duration-300 group-hover:shadow-md'>
+                <img
+                  src='logo.jpeg'
+                  alt='Waste Wise Humanitarian Initiative logo'
+                  className='h-full w-full object-cover'
+                />
+              </span>
+              <span className='min-w-0'>
+                <span className='block font-display text-sm font-bold leading-tight text-foreground'>
                   WHI
-                </h1>
-                <p className='text-xs text-muted-foreground font-medium'>
+                </span>
+                <span className='block max-w-[13rem] truncate text-xs font-medium text-muted-foreground sm:max-w-none'>
                   Waste Wise Humanitarian Initiative
-                </p>
-              </div>
+                </span>
+              </span>
             </a>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className='hidden md:flex items-center gap-8'>
+          <div className='hidden items-center gap-1 rounded-full border border-border/60 bg-white/50 p-1 shadow-sm backdrop-blur-md md:flex'>
             {navLinks.map((link) => (
-              <div key={link.label} className='relative group'>
-                <a
-                  href={link.href}
-                  className='text-sm font-medium text-foreground/70 hover:text-primary transition-colors duration-200 relative flex items-center gap-1 group'
-                >
-                  {link.label}
-                  <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300' />
-                </a>
-              </div>
+              <a
+                key={link.label}
+                href={link.href}
+                className='rounded-full px-4 py-2 text-sm font-semibold text-foreground/70 transition-colors duration-200 hover:bg-primary/10 hover:text-primary'
+              >
+                {link.label}
+              </a>
             ))}
           </div>
 
-          {/* Desktop Donate Button */}
           <button
             onClick={onDonateClick}
-            className='hidden md:inline-flex px-6 py-2.5 rounded-lg font-semibold bg-accent text-accent-foreground hover:shadow-lg hover:scale-105 transition-all duration-300'
+            className='hidden min-h-11 items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md md:inline-flex'
           >
+            <Heart className='h-4 w-4' />
             Donate
           </button>
 
-          {/* Mobile Menu Toggle */}
           <button
-            onClick={() => setIsOpen(!isOpen)}
-            className='md:hidden p-2 hover:bg-muted rounded-lg transition-colors cursor-pointer'
+            onClick={() => setIsOpen((open) => !open)}
+            className='inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border/70 bg-white/60 text-foreground transition-colors hover:bg-white md:hidden'
             aria-label='Toggle menu'
+            aria-expanded={isOpen}
           >
-            {isOpen ? (
-              <X className='w-6 h-6 text-foreground' />
-            ) : (
-              <Menu className='w-6 h-6 text-foreground' />
-            )}
+            {isOpen ? <X className='h-5 w-5' /> : <Menu className='h-5 w-5' />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -169,13 +128,12 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className='fixed inset-0 bg-black/20 backdrop-blur-sm z-30 md:hidden'
+            className='fixed inset-0 z-30 bg-foreground/25 backdrop-blur-sm md:hidden'
             onClick={() => setIsOpen(false)}
           />
         )}
       </AnimatePresence>
 
-      {/* Mobile Menu Slide-Out - Full Width */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -183,31 +141,26 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
             initial='hidden'
             animate='visible'
             exit='exit'
-            className='fixed top-16 left-0 w-full h-[calc(100vh-4rem)] bg-white z-30 md:hidden overflow-y-auto'
+            className='fixed left-0 right-0 top-16 z-40 border-b border-border/70 bg-background shadow-xl md:hidden'
           >
-            <div className='container p-6 space-y-3 max-w-full'>
-              {/* Mobile Navigation Links with Dropdowns */}
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.label}
-                  custom={i}
-                  variants={linkVariants}
-                  initial='hidden'
-                  animate='visible'
-                >
-                  <button
+            <div className='container py-5'>
+              <div className='grid gap-2'>
+                {navLinks.map((link, i) => (
+                  <motion.a
+                    key={link.label}
+                    custom={i}
+                    variants={linkVariants}
+                    initial='hidden'
+                    animate='visible'
                     onClick={() => setIsOpen(false)}
-                    className='w-full flex items-center justify-center px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors duration-200 text-center'
+                    className='rounded-lg px-4 py-3 text-base font-semibold text-foreground transition-colors hover:bg-primary/10 hover:text-primary'
+                    href={link.href}
                   >
-                    <span>{link.label}</span>
-                  </button>
-                </motion.div>
-              ))}
+                    {link.label}
+                  </motion.a>
+                ))}
+              </div>
 
-              {/* Divider */}
-              <div className='border-t border-border/40 my-4' />
-
-              {/* Mobile Donate Button */}
               <motion.button
                 variants={linkVariants}
                 custom={navLinks.length}
@@ -217,29 +170,43 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
                   onDonateClick();
                   setIsOpen(false);
                 }}
-                className='w-full px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg transition-all duration-300 text-center'
+                className='mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary to-accent px-6 py-3 font-semibold text-white shadow-sm transition-all duration-300 hover:shadow-md'
               >
+                <Heart className='h-4 w-4' />
                 Donate Now
               </motion.button>
 
-              {/* Mobile Contact Info */}
               <motion.div
                 variants={linkVariants}
                 custom={navLinks.length + 1}
                 initial='hidden'
                 animate='visible'
-                className='pt-4 space-y-2 text-sm text-foreground/60 text-center flex flex-col items-center justify-center'
+                className='mt-5 space-y-3 border-t border-border/70 pt-5 text-sm text-foreground/70'
               >
-                <p className='text-center'>wastewisehumanitarianinitiav@gmail.com</p>
-                <p className='text-center'>📱 +234 8159713721</p>
-                <p className='text-center'>📍 Enugu, Nigeria</p>
+                <a
+                  href='mailto:wastewisehumanitarianinitiav@gmail.com'
+                  className='flex items-start gap-3 break-all transition-colors hover:text-primary'
+                >
+                  <Mail className='mt-0.5 h-4 w-4 flex-shrink-0 text-primary' />
+                  wastewisehumanitarianinitiav@gmail.com
+                </a>
+                <a
+                  href='tel:+2348159713721'
+                  className='flex items-center gap-3 transition-colors hover:text-primary'
+                >
+                  <Phone className='h-4 w-4 flex-shrink-0 text-primary' />
+                  +234 815 971 3721
+                </a>
+                <p className='flex items-center gap-3'>
+                  <MapPin className='h-4 w-4 flex-shrink-0 text-primary' />
+                  Enugu, Nigeria
+                </p>
               </motion.div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Spacer to prevent content overlap */}
       <div className='h-16 md:h-20' />
     </>
   );
