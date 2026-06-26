@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useForm, ValidationError } from "@formspree/react";
 import { CheckCircle, Mail, Phone, Send } from "lucide-react";
 
@@ -43,7 +43,7 @@ export default function ContactSection() {
   ];
 
   const fieldClass =
-    "w-full rounded-lg border border-border bg-white px-4 py-3 text-foreground placeholder-foreground/50 transition-all duration-300 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary";
+    "w-full min-w-0 rounded-lg border border-border bg-white px-4 py-3 text-foreground placeholder-foreground/50 transition-all duration-300 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary";
 
   if (state.succeeded) {
     return (
@@ -85,7 +85,7 @@ export default function ContactSection() {
       id='contact'
       className='bg-gradient-to-br from-white via-primary/5 to-muted/30 py-16 md:py-24'
     >
-      <div className='w-full'>
+      <div className='container'>
         <motion.div
           className='mb-12 grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-end'
           variants={containerVariants}
@@ -108,21 +108,21 @@ export default function ContactSection() {
         </motion.div>
 
         <motion.div
-          className='grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14'
+          className='grid min-w-0 items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.aside variants={itemVariants}>
-            <div className='overflow-hidden rounded-lg border border-primary/15 bg-white/80 shadow-sm'>
+          <motion.aside className='min-w-0' variants={itemVariants}>
+            <div className='max-w-full overflow-hidden rounded-lg border border-primary/15 bg-white/80 shadow-sm'>
               {contactInfo.map((info) => {
                 const Icon = info.icon;
                 return (
                   <a
                     key={info.title}
                     href={info.href}
-                    className='flex gap-4 border-b border-primary/10 p-5 transition-colors last:border-b-0 hover:bg-primary/5'
+                    className='flex min-w-0 gap-4 border-b border-primary/10 p-5 transition-colors last:border-b-0 hover:bg-primary/5'
                   >
                     <span className='flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary'>
                       <Icon className='h-5 w-5' />
@@ -131,7 +131,7 @@ export default function ContactSection() {
                       <span className='block text-sm font-semibold text-foreground/60'>
                         {info.title}
                       </span>
-                      <span className='mt-1 block break-words font-display text-base font-bold text-foreground'>
+                      <span className='mt-1 block break-all font-display text-base font-bold text-foreground'>
                         {info.value}
                       </span>
                       <span className='mt-1 block text-sm leading-6 text-foreground/60'>
@@ -152,7 +152,7 @@ export default function ContactSection() {
           </motion.aside>
 
           <motion.div
-            className='rounded-lg border border-primary/15 bg-white p-6 shadow-xl md:p-8 lg:p-10'
+            className='min-w-0 max-w-full rounded-lg border border-primary/15 bg-white p-6 shadow-xl md:p-8 lg:p-10'
             variants={itemVariants}
           >
             <h3 className='text-2xl font-display font-bold text-foreground md:text-3xl'>
@@ -273,3 +273,4 @@ export default function ContactSection() {
     </section>
   );
 }
+
