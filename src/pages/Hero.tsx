@@ -28,18 +28,19 @@ export default function Hero({ onDonateClick }: HeroProps) {
 
   return (
     <section
-      className='w-full relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden bg-foreground md:min-h-[calc(100vh-5rem)]'
+      className='relative isolate flex min-h-[calc(100svh-4rem)] items-center overflow-hidden bg-foreground md:min-h-[calc(100vh-5rem)]'
       style={{
         backgroundImage: `url('Hero.jpeg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        backgroundAttachment: "fixed",
       }}
     >
       <div className='absolute inset-0 bg-black/50' />
       <div className='absolute inset-0 bg-gradient-to-r from-foreground/75 via-foreground/40 to-primary/10' />
       <div className='absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent' />
 
-      <div>
+      <div className='container relative z-10 w-full'>
         <motion.div
           className='max-w-4xl py-14 sm:py-20 md:py-28 lg:py-32'
           variants={containerVariants}
@@ -97,4 +98,5 @@ export default function Hero({ onDonateClick }: HeroProps) {
     </section>
   );
 }
+
 

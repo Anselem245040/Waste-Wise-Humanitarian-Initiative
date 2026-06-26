@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { Link } from "wouter";
@@ -24,9 +24,30 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "unset";
+    if (!isOpen) return;
+
+    const scrollY = window.scrollY;
+    const { style: bodyStyle } = document.body;
+    const { style: htmlStyle } = document.documentElement;
+    const previousBodyOverflow = bodyStyle.overflow;
+    const previousBodyPosition = bodyStyle.position;
+    const previousBodyTop = bodyStyle.top;
+    const previousBodyWidth = bodyStyle.width;
+    const previousHtmlOverflow = htmlStyle.overflow;
+
+    htmlStyle.overflow = "hidden";
+    bodyStyle.overflow = "hidden";
+    bodyStyle.position = "fixed";
+    bodyStyle.top = `-${scrollY}px`;
+    bodyStyle.width = "100%";
+
     return () => {
-      document.body.style.overflow = "unset";
+      htmlStyle.overflow = previousHtmlOverflow;
+      bodyStyle.overflow = previousBodyOverflow;
+      bodyStyle.position = previousBodyPosition;
+      bodyStyle.top = previousBodyTop;
+      bodyStyle.width = previousBodyWidth;
+      window.scrollTo(0, scrollY);
     };
   }, [isOpen]);
 
@@ -213,3 +234,4 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
     </>
   );
 }
+
