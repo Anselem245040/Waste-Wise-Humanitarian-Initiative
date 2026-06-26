@@ -73,11 +73,13 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
           <Link href='/'>
             <a className='group flex min-w-0 items-center gap-3'>
               <span className='flex h-11 w-11 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg border border-primary/20 bg-white shadow-sm transition-shadow duration-300 group-hover:shadow-md'>
-                <img
-                  src='logo.jpeg'
-                  alt='Waste Wise Humanitarian Initiative logo'
-                  className='h-full w-full object-cover'
-                />
+                <Link href='/'>
+                  <img
+                    src='logo.jpeg'
+                    alt='Waste Wise Humanitarian Initiative logo'
+                    className='h-full w-full object-cover'
+                  />
+                </Link>
               </span>
               <span className='min-w-0'>
                 <span className='block font-display text-sm font-bold leading-tight text-foreground'>

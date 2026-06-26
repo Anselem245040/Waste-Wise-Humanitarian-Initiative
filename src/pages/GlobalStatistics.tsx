@@ -1,14 +1,66 @@
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { BarChart3, Droplet, Globe, Timer } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 type Statistic = {
   icon: LucideIcon;
-  value: string;
+  value: number;
+  suffix: string;
   unit: string;
   description: string;
   tone: string;
 };
+
+type CountUpNumberProps = {
+  value: number;
+  suffix: string;
+};
+
+function CountUpNumber({ value, suffix }: CountUpNumberProps) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [displayValue, setDisplayValue] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element || hasAnimated) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+
+        setHasAnimated(true);
+        const duration = 1600;
+        const start = performance.now();
+
+        const animate = (time: number) => {
+          const progress = Math.min((time - start) / duration, 1);
+          const easedProgress = 1 - Math.pow(1 - progress, 3);
+          setDisplayValue(Math.round(value * easedProgress));
+
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          }
+        };
+
+        requestAnimationFrame(animate);
+        observer.disconnect();
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [hasAnimated, value]);
+
+  return (
+    <span ref={ref}>
+      {displayValue.toLocaleString()}
+      {suffix}
+    </span>
+  );
+}
 
 export default function GlobalStatistics() {
   const containerVariants = {
@@ -34,28 +86,32 @@ export default function GlobalStatistics() {
   const statistics: Statistic[] = [
     {
       icon: BarChart3,
-      value: "432+",
+      value: 432,
+      suffix: "+",
       unit: "Million Tonnes",
       description: "of plastic waste generated annually",
       tone: "bg-primary text-white",
     },
     {
       icon: Timer,
-      value: "1,000+",
+      value: 1000,
+      suffix: "+",
       unit: "Years",
       description: "for plastic to decompose naturally",
       tone: "bg-secondary text-white",
     },
     {
       icon: Droplet,
-      value: "199+",
+      value: 199,
+      suffix: "+",
       unit: "Million Tonnes",
       description: "of plastic litter our Ocean damaging the ecosystem",
       tone: "bg-primary text-white",
     },
     {
       icon: Globe,
-      value: "1M+",
+      value: 1,
+      suffix: "M+",
       unit: "Sea Creatures",
       description: "killed by plastic every year",
       tone: "bg-secondary text-white",
@@ -64,7 +120,7 @@ export default function GlobalStatistics() {
 
   return (
     <section className='bg-gradient-to-br from-secondary/10 via-muted to-primary/10 py-16 md:py-24'>
-      <div className=''>
+      <div className='container'>
         <motion.div
           className='grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-14'
           variants={containerVariants}
@@ -94,7 +150,7 @@ export default function GlobalStatistics() {
               const Icon = stat.icon;
               return (
                 <motion.article
-                  key={`${stat.value}-${stat.unit}`}
+                  key={`${stat.value}${stat.suffix}-${stat.unit}`}
                   className='grid gap-4 border-b border-primary/10 p-5 last:border-b-0 sm:grid-cols-[auto_1fr] sm:items-center md:p-6'
                   variants={itemVariants}
                 >
@@ -105,7 +161,7 @@ export default function GlobalStatistics() {
                   </span>
                   <div>
                     <p className='font-display text-3xl font-bold text-foreground md:text-4xl'>
-                      {stat.value}
+                      <CountUpNumber value={stat.value} suffix={stat.suffix} />
                     </p>
                     <p className='mt-1 text-sm font-semibold text-primary'>
                       {stat.unit}

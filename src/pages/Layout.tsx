@@ -88,7 +88,7 @@ export default function Layout({ children }: LayoutProps) {
       </header>
 
       {/* Main Content */}
-      <main className='flex-1'>{children}</main>
+      <main>{children}</main>
 
       {/* Footer */}
       <footer className='bg-foreground text-background border-t border-border/10'>

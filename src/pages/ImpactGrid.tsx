@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   BarChart3,
@@ -87,7 +87,7 @@ export default function ImpactGrid() {
       id='impact'
       className='bg-gradient-to-br from-background via-primary/5 to-secondary/5 py-16 md:py-24'
     >
-      <div className=''>
+      <div className='container'>
         <motion.div
           className='grid gap-10 lg:grid-cols-12 lg:gap-14'
           variants={containerVariants}
@@ -209,3 +209,4 @@ export default function ImpactGrid() {
     </section>
   );
 }
+
