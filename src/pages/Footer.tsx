@@ -1,4 +1,4 @@
-﻿import {
+import {
   ArrowRight,
   ExternalLink,
   Heart,
@@ -47,10 +47,10 @@ export default function Footer({ onDonateClick }: FooterProps) {
   ];
 
   return (
-    <footer className='border-t border-white/10 bg-foreground text-background'>
-      <div className='py-14 md:py-20'>
+    <footer className='overflow-hidden border-t border-white/10 bg-foreground text-background'>
+      <div className='container max-w-full px-5 py-14 sm:px-6 md:py-20 lg:px-8'>
         <motion.div
-          className='mb-12 grid gap-8 rounded-lg border border-white/10 bg-white/5 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8'
+          className='mb-12 grid min-w-0 gap-8 rounded-lg border border-white/10 bg-white/5 p-5 sm:p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
@@ -76,7 +76,7 @@ export default function Footer({ onDonateClick }: FooterProps) {
         </motion.div>
 
         <motion.div
-          className='grid gap-10 md:grid-cols-[1.2fr_0.7fr_0.7fr_1fr]'
+          className='grid min-w-0 gap-10 md:grid-cols-[1.2fr_0.7fr_0.7fr_1fr]'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
@@ -95,7 +95,7 @@ export default function Footer({ onDonateClick }: FooterProps) {
                 <span className='block font-display text-lg font-bold text-white'>
                   WHI
                 </span>
-                <span className='block text-xs font-medium text-background/60'>
+                <span className='block max-w-full break-words text-xs font-medium text-background/60'>
                   Waste Wise Humanitarian Initiative
                 </span>
               </span>
@@ -161,7 +161,7 @@ export default function Footer({ onDonateClick }: FooterProps) {
             <div className='mt-4 space-y-4 text-sm text-background/70'>
               <a
                 href='mailto:wastewisehumanitarianinitiav@gmail.com'
-                className='flex items-start gap-3 break-all transition-colors hover:text-background'
+                className='flex min-w-0 items-start gap-3 break-all transition-colors hover:text-background'
               >
                 <Mail className='mt-0.5 h-4 w-4 flex-shrink-0 text-primary' />
                 wastewisehumanitarianinitiav@gmail.com
@@ -181,8 +181,8 @@ export default function Footer({ onDonateClick }: FooterProps) {
           </motion.div>
         </motion.div>
 
-        <div className='mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-background/50 md:flex-row md:items-center md:justify-between'>
-          <p>© 2026 Waste Wise Humanitarian Initiative. All rights reserved.</p>
+        <div className='mt-12 flex min-w-0 flex-col gap-4 border-t border-white/10 pt-6 text-xs text-background/50 md:flex-row md:items-center md:justify-between'>
+          <p className='break-words'>� 2026 Waste Wise Humanitarian Initiative. All rights reserved.</p>
           <div className='flex gap-5'>
             <a
               href='#contact'
@@ -202,3 +202,4 @@ export default function Footer({ onDonateClick }: FooterProps) {
     </footer>
   );
 }
+
