@@ -105,7 +105,7 @@ export default function ExploreAll() {
   return (
     <div className='min-h-screen bg-background'>
       {/* Header */}
-      <div className='relative pt-32 pb-16 overflow-hidden'>
+      <div className='relative pb-16 overflow-hidden'>
         <div className='absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5' />
         <div className='ml-4 relative z-10'>
           <Link href='/'>
