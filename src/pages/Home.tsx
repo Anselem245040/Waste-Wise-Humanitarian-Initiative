@@ -19,7 +19,7 @@ import AboutSection from "./AboutSection";
 
 export default function Home() {
   return (
-    <div className='min-h-screen flex flex-col  text-foreground'>
+    <div className='min-h-screen flex flex-col bg-background text-foreground'>
       {/* Hero Section */}
       <Hero />
 
