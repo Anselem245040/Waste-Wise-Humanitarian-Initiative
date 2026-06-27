@@ -215,6 +215,33 @@ export default function AboutSection() {
             className='grid gap-5 sm:grid-cols-2 lg:max-w-4xl'
             variants={containerVariants}
           >
+            <motion.h4
+              className='mb-8 text-2xl font-display font-bold text-foreground md:text-4xl'
+              variants={itemVariants}
+            >
+              About the Founding Team
+            </motion.h4>
+            <motion.p
+              className='mb-8 text-base leading-8 text-foreground/70 md:text-lg'
+              variants={itemVariants}
+            >
+              WHI is founded by a team of passionate individuals with a deep
+              commitment to environmental sustainability, community
+              developement, and youth empowerment. Our founding team brings
+              together diverse skills and experience in community organizing,
+              education, environmental advocacy and youth development.
+              <span>
+                We are driven not just by what we do, but by why we do it. We
+                believe that every community deserves a clean, safe, and
+                sustainable environment, and that every young person deserves
+                and the opportunity to thrive.
+              </span>
+            </motion.p>
+          </motion.div>
+          <motion.div
+            className='grid gap-5 sm:grid-cols-2 lg:max-w-4xl'
+            variants={containerVariants}
+          >
             {teamMembers.map((member) => (
               <motion.article
                 key={member.name}

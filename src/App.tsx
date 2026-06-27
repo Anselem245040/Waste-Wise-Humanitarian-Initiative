@@ -11,7 +11,6 @@ import Home from "./pages/Home";
 import ViewMore from "./pages/ViewMore";
 import LearnMore from "./pages/LearnMore";
 import ExploreAll from "./pages/ExploreAll";
-import FullGallery from "./pages/FullGallery";
 import Footer from "./pages/Footer";
 
 function Router() {
@@ -21,7 +20,6 @@ function Router() {
       <Route path={"/view-more"} component={ViewMore} />
       <Route path={"/learn-more"} component={LearnMore} />
       <Route path={"/explore-all"} component={ExploreAll} />
-      <Route path={"/full-gallery"} component={FullGallery} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

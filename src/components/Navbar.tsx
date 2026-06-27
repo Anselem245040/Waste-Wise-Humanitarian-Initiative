@@ -90,7 +90,7 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
             : "border-b border-white/30 bg-background/75 backdrop-blur-lg"
         }`}
       >
-        <div className='flex h-16 items-center justify-between gap-4 md:h-20'>
+        <div className='ml-4 mr-4 flex h-16 items-center justify-between gap-4 md:h-20'>
           <Link href='/'>
             <a className='group flex min-w-0 items-center gap-3'>
               <span className='flex h-11 w-11 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg border border-primary/20 bg-white shadow-sm transition-shadow duration-300 group-hover:shadow-md'>
@@ -234,4 +234,3 @@ export default function Navbar({ onDonateClick }: NavbarProps) {
     </>
   );
 }
-

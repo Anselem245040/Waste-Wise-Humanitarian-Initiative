@@ -9,6 +9,7 @@ import {
   Zap,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { Link } from "wouter";
 
 type ImpactCard = {
   icon: LucideIcon;
@@ -110,13 +111,13 @@ export default function ImpactGrid() {
               Comprehensive waste management solutions built on innovation,
               community engagement, and sustainable practices
             </p>
-            <a
+            <Link
               href='/explore-all'
               className='mt-8 inline-flex min-h-11 items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-accent px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md'
             >
               Explore All Initiatives
               <ArrowRight className='h-4 w-4' />
-            </a>
+            </Link>
           </motion.div>
 
           <motion.div className='lg:col-span-8' variants={containerVariants}>
@@ -141,13 +142,13 @@ export default function ImpactGrid() {
                       lifestyle.
                     </p>
                   </div>
-                  <a
+                  <Link
                     href='/learn-more'
                     className='inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-background'
                   >
                     Learn More
                     <ArrowRight className='h-4 w-4' />
-                  </a>
+                  </Link>
                 </div>
               </motion.article>
 
@@ -170,13 +171,13 @@ export default function ImpactGrid() {
                     <p className='mt-3 text-sm leading-7 text-foreground/70'>
                       {card.description}
                     </p>
-                    <a
+                    <Link
                       href='/learn-more'
                       className='mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-secondary'
                     >
                       Learn More
                       <ArrowRight className='h-4 w-4' />
-                    </a>
+                    </Link>
                   </motion.article>
                 );
               })}
@@ -197,6 +198,7 @@ export default function ImpactGrid() {
           >
             Interested in learning more about our initiatives?
           </motion.p>
+          <Link href='/explore-all' asChild>
           <motion.a
             href='/explore-all'
             className='inline-flex min-h-11 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md'
@@ -204,6 +206,7 @@ export default function ImpactGrid() {
           >
             Explore All Initiatives
           </motion.a>
+          </Link>
         </motion.div>
       </div>
     </section>

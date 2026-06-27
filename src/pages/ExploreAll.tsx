@@ -1,15 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  ArrowLeft,
-  Leaf,
-  Users,
-  Zap,
-  BookOpen,
-  Award,
-  Lightbulb,
-  Globe,
-  Heart,
-} from "lucide-react";
+import { ArrowLeft, Leaf, Users, BookOpen, Heart } from "lucide-react";
 import { Link } from "wouter";
 
 /**
@@ -39,11 +29,11 @@ export default function ExploreAll() {
       title: "Community Cleanups",
       subtitle: "Mobilizing Communities for Change",
       description:
-        "Large-scale cleanup drives that bring together volunteers, local leaders, and residents to restore public spaces and improve environmental quality across Nigeria.",
+        "Aim: Large-scale cleanup drives that bring together volunteers, local leaders, and residents to restore public spaces and improve environmental quality across Nigeria.",
       stats: [
-        { label: "Events Annually", value: "50+" },
-        { label: "Volunteers Mobilized", value: "5,000+" },
-        { label: "Tons Collected", value: "500+" },
+        { label: "Events to be held Annually", value: "50+" },
+        { label: "Volunteers to be Mobilized", value: "5,000+" },
+        { label: "Tons to be Collected", value: "500+" },
       ],
       icon: <Leaf className='w-8 h-8' />,
       color: "from-green-500 to-emerald-500",
@@ -53,95 +43,39 @@ export default function ExploreAll() {
       title: "Youth Employment",
       subtitle: "Empowering the Next Generation",
       description:
-        "Training and employment programs for young professionals in waste management, recycling operations, and environmental sustainability.",
+        "Aim: Training and employment programs for young professionals in waste management, recycling operations, and environmental sustainability.",
       stats: [
-        { label: "Youth Trained", value: "500+" },
-        { label: "Jobs Created", value: "300+" },
-        { label: "Wages Generated", value: "₦50M+" },
+        { label: "Youth reached", value: "500+" },
+        { label: "Jobs Aimed to be Created", value: "300+" },
+        { label: "Wages Aimed to be Generated", value: "₦50M+" },
       ],
       icon: <Users className='w-8 h-8' />,
       color: "from-blue-500 to-cyan-500",
     },
     {
       id: 3,
-      title: "Tech Innovation Lab",
-      subtitle: "Technology-Driven Solutions",
-      description:
-        "Developing innovative tech platforms for real-time waste tracking, impact measurement, and community engagement through mobile apps and data analytics.",
-      stats: [
-        { label: "Active Users", value: "10,000+" },
-        { label: "Data Points", value: "1M+" },
-        { label: "Accuracy Rate", value: "99.5%" },
-      ],
-      icon: <Zap className='w-8 h-8' />,
-      color: "from-yellow-500 to-orange-500",
-    },
-    {
-      id: 4,
       title: "Environmental Education",
       subtitle: "Building Awareness & Consciousness",
       description:
-        "Comprehensive educational programs in schools and communities to raise awareness about waste management and sustainable living practices.",
+        "Aim: Comprehensive educational programs in schools and communities to raise awareness about waste management and sustainable living practices.",
       stats: [
-        { label: "Students Reached", value: "50,000+" },
-        { label: "Schools Engaged", value: "100+" },
+        { label: "Youths Reached", value: "200+" },
+        { label: "Schools Engaged", value: "10+" },
         { label: "Behavior Change", value: "98%" },
       ],
       icon: <BookOpen className='w-8 h-8' />,
       color: "from-purple-500 to-pink-500",
     },
     {
-      id: 5,
-      title: "Corporate Partnerships",
-      subtitle: "Business for Good",
-      description:
-        "Collaborating with leading companies to implement comprehensive recycling programs and sustainable waste solutions across industries.",
-      stats: [
-        { label: "Companies Partnered", value: "50+" },
-        { label: "Tons Recycled", value: "12,500+" },
-        { label: "Revenue Shared", value: "₦100M+" },
-      ],
-      icon: <Award className='w-8 h-8' />,
-      color: "from-indigo-500 to-blue-500",
-    },
-    {
-      id: 6,
-      title: "Research & Development",
-      subtitle: "Innovating for Impact",
-      description:
-        "Conducting research on waste management practices, developing new recycling technologies, and creating scalable solutions for environmental challenges.",
-      stats: [
-        { label: "Projects Active", value: "15+" },
-        { label: "Innovations", value: "8+" },
-        { label: "Patents Pending", value: "3+" },
-      ],
-      icon: <Lightbulb className='w-8 h-8' />,
-      color: "from-cyan-500 to-teal-500",
-    },
-    {
       id: 7,
-      title: "Global Partnerships",
-      subtitle: "International Collaboration",
-      description:
-        "Working with international organizations and NGOs to share best practices, secure funding, and scale our impact across Africa and beyond.",
-      stats: [
-        { label: "Partners Globally", value: "20+" },
-        { label: "Countries", value: "5+" },
-        { label: "Funding Secured", value: "$5M+" },
-      ],
-      icon: <Globe className='w-8 h-8' />,
-      color: "from-rose-500 to-red-500",
-    },
-    {
-      id: 8,
       title: "Community Support Fund",
       subtitle: "Direct Impact Investment",
       description:
-        "A dedicated fund that provides grants and support to grassroots environmental initiatives and community-led waste management projects.",
+        "Aim: A dedicated fund that provides grants and support to grassroots environmental initiatives and community-led waste management projects.",
       stats: [
-        { label: "Grants Awarded", value: "100+" },
-        { label: "Communities Supported", value: "25+" },
-        { label: "Fund Size", value: "₦200M+" },
+        { label: "Grants to be Awarded", value: "100+" },
+        { label: "Communities to be Supported", value: "25+" },
+        { label: "Fund Size to be obtained", value: "₦200M+" },
       ],
       icon: <Heart className='w-8 h-8' />,
       color: "from-orange-500 to-yellow-500",
@@ -173,7 +107,7 @@ export default function ExploreAll() {
       {/* Header */}
       <div className='relative pt-32 pb-16 overflow-hidden'>
         <div className='absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5' />
-        <div className=' relative z-10'>
+        <div className='ml-4 relative z-10'>
           <Link href='/'>
             <motion.div
               className='flex items-center gap-2 text-primary hover:text-primary/80 cursor-pointer mb-6 w-fit'
@@ -185,7 +119,7 @@ export default function ExploreAll() {
           </Link>
 
           <motion.div
-            className='max-w-3xl'
+            className='max-w-3xl ml-5 md:ml-0'
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}

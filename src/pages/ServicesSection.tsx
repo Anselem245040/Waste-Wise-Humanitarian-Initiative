@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   BarChart3,
@@ -8,6 +8,7 @@ import {
   Users,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { Link } from "wouter";
 
 type Service = {
   icon: LucideIcon;
@@ -132,13 +133,13 @@ export default function ServicesSection() {
               WHI uses this as the entry point for stronger sanitation habits
               and broader community participation.
             </p>
-            <a
+            <Link
               href='/learn-more'
               className='mt-8 inline-flex min-h-11 items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-background'
             >
               Learn More
               <ArrowRight className='h-4 w-4' />
-            </a>
+            </Link>
           </motion.article>
 
           {supportingServices.map((service, index) => {
@@ -166,13 +167,13 @@ export default function ServicesSection() {
                 <p className='mt-3 text-sm leading-7 text-foreground'>
                   {service.description}
                 </p>
-                <a
+                <Link
                   href='/learn-more'
                   className='mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-primary'
                 >
                   Learn More
                   <ArrowRight className='h-4 w-4' />
-                </a>
+                </Link>
               </motion.article>
             );
           })}

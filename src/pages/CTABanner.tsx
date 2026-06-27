@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Users, Zap, ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 
 /**
  * Premium CTA Banner Component
@@ -119,8 +120,8 @@ export default function CTABanner() {
               {ctaOptions.map((option, idx) => {
                 const Icon = option.icon;
                 return (
+                  <Link key={idx} href='/learn-more' asChild>
                   <motion.a
-                    key={idx}
                     href='/learn-more'
                     className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${option.gradient} p-8 text-white hover:shadow-2xl transition-all duration-300 transform hover:scale-105 w-full md:w-1/2 flex flex-col items-center justify-center text-center`}
                     variants={itemVariants}
@@ -183,6 +184,7 @@ export default function CTABanner() {
                       }}
                     />
                   </motion.a>
+                  </Link>
                 );
               })}
             </motion.div>
@@ -207,18 +209,18 @@ export default function CTABanner() {
             className='flex flex-col sm:flex-row gap-4 justify-center'
             variants={containerVariants}
           >
-            <a
+            <Link
               href='/learn-more'
               className='px-8 py-3 rounded-lg font-semibold bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg hover:scale-105 active:scale-97 transition-all duration-300 inline-block text-center'
             >
               Contact Us
-            </a>
-            <a
+            </Link>
+            <Link
               href='/learn-more'
               className='px-8 py-3 rounded-lg font-semibold border-2 border-primary text-primary hover:bg-primary/5 transition-all duration-300 inline-block text-center'
             >
               Learn More
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
 

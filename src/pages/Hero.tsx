@@ -1,5 +1,6 @@
 import { ArrowRight, Leaf } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 
 interface HeroProps {
   onDonateClick?: () => void;
@@ -86,12 +87,12 @@ export default function Hero({ onDonateClick }: HeroProps) {
               Contact us
               <ArrowRight className='h-5 w-5' />
             </a>
-            <a
+            <Link
               href='/learn-more'
               className='inline-flex min-h-12 w-full items-center justify-center rounded-lg border border-white/70 bg-white/20 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/30 sm:w-auto sm:px-7 sm:py-3.5 sm:text-base'
             >
               Learn More
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

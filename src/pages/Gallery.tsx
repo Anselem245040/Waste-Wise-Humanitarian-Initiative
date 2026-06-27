@@ -1,5 +1,6 @@
-﻿import { motion } from "framer-motion";
-import { ArrowRight, Eye } from "lucide-react";
+import { motion } from "framer-motion";
+import { Eye } from "lucide-react";
+import { Link } from "wouter";
 
 interface GalleryImage {
   id: number;
@@ -69,9 +70,8 @@ export default function Gallery() {
             className='max-w-2xl text-base leading-8 text-foreground/70 md:text-lg lg:justify-self-end'
             variants={itemVariants}
           >
-             A closer look at the
-            people, training, and outreach moments behind the initiative's
-            environmental impact.
+            A closer look at the people, training, and outreach moments behind
+            the initiative's environmental impact.
           </motion.p>
         </motion.div>
 
@@ -90,7 +90,7 @@ export default function Gallery() {
               }`}
               variants={itemVariants}
             >
-              <a href='/full-gallery' className='block'>
+              <Link href='/full-gallery' className='block'>
                 <div className='relative aspect-[4/3] overflow-hidden md:aspect-[16/11]'>
                   <img
                     src={image.image}
@@ -115,7 +115,7 @@ export default function Gallery() {
                     <Eye className='h-5 w-5' />
                   </span>
                 </div>
-              </a>
+              </Link>
             </motion.article>
           ))}
         </motion.div>
@@ -131,20 +131,12 @@ export default function Gallery() {
             className='text-sm leading-7 text-foreground/70 md:text-base'
             variants={itemVariants}
           >
-            Explore more of our community projects and environmental initiatives, including the training, outreach, and cleanup moments that show the work in motion
+            Explore more of our community projects and environmental
+            initiatives, including the training, outreach, and cleanup moments
+            that show the work in motion
           </motion.p>
-          <motion.a
-            href='/full-gallery'
-            className='inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md'
-            variants={itemVariants}
-          >
-            View Full Gallery
-            <ArrowRight className='h-4 w-4' />
-          </motion.a>
         </motion.div>
       </div>
     </section>
   );
 }
-
-

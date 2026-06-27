@@ -7,6 +7,7 @@ import {
   Phone,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 
 interface FooterProps {
   onDonateClick?: () => void;
@@ -43,7 +44,6 @@ export default function Footer({ onDonateClick }: FooterProps) {
   const resources = [
     { label: "Learn More", href: "/learn-more" },
     { label: "Explore All", href: "/explore-all" },
-    { label: "Gallery", href: "/full-gallery" },
   ];
 
   return (
@@ -123,13 +123,13 @@ export default function Footer({ onDonateClick }: FooterProps) {
             <ul className='mt-4 space-y-3 text-sm'>
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className='inline-flex items-center gap-2 text-background/70 transition-colors hover:text-background'
                   >
                     <ArrowRight className='h-3.5 w-3.5 text-primary' />
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -142,13 +142,13 @@ export default function Footer({ onDonateClick }: FooterProps) {
             <ul className='mt-4 space-y-3 text-sm'>
               {resources.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className='inline-flex items-center gap-2 text-background/70 transition-colors hover:text-background'
                   >
                     <ArrowRight className='h-3.5 w-3.5 text-primary' />
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -182,7 +182,9 @@ export default function Footer({ onDonateClick }: FooterProps) {
         </motion.div>
 
         <div className='mt-12 flex min-w-0 flex-col gap-4 border-t border-white/10 pt-6 text-xs text-background/50 md:flex-row md:items-center md:justify-between'>
-          <p className='break-words'>© 2026 Waste Wise Humanitarian Initiative. All rights reserved.</p>
+          <p className='break-words'>
+            ï¿½ 2026 Waste Wise Humanitarian Initiative. All rights reserved.
+          </p>
           <div className='flex gap-5'>
             <a
               href='#contact'
@@ -190,16 +192,15 @@ export default function Footer({ onDonateClick }: FooterProps) {
             >
               Contact
             </a>
-            <a
+            <Link
               href='/learn-more'
               className='transition-colors hover:text-background'
             >
               Learn More
-            </a>
+            </Link>
           </div>
         </div>
       </div>
     </footer>
   );
 }
-
