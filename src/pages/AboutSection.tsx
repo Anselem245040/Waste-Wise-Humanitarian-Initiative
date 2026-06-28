@@ -78,7 +78,7 @@ export default function AboutSection() {
     {
       name: "Chimdinma Zik",
       role: "CEO",
-      bio: "Founder & Chief Executive Officer",
+      bio: "Founder",
       avatar: "ceo.jpeg",
     },
     {
